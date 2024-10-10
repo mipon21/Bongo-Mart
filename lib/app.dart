@@ -1,4 +1,5 @@
 import 'package:bongo_mart/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
 import 'package:bongo_mart/features/authentication/screens/splash/splashscreen.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/theme/theme.dart';

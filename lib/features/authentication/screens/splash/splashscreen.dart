@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return AnimatedSplashScreen(
-      splashIconSize: 400,
+      splashIconSize: double.infinity,
       duration: 3000, // Duration for the splash screen (in milliseconds)
       splashTransition: SplashTransition
           .scaleTransition, // Use scale transition for a smoother effect
@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           ? Lottie.asset("assets/animation/bongo-mart-logo-dark.json")
           : Lottie.asset("assets/animation/bongo-mart-logo-light.json"),
       nextScreen: const OnBoarding(),
-      backgroundColor: isDark ? TColors.secondary : Colors.white, // Set the background color
+      backgroundColor: isDark ? Color(0xFF1D4164) : Colors.white, // Set the background color
     );
   }
 }

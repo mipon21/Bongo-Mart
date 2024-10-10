@@ -1,8 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
+import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
+import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MyLoginForm extends StatelessWidget {
@@ -41,18 +46,29 @@ class MyLoginForm extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
+                    SizedBox(
+                        width: 24,
+                        child: Checkbox(value: true, onChanged: (value) {})),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Text(TTexts.rememberMe),
                   ],
                 ),
                 GestureDetector(
                   onTap: () {
-                    // Action when the "Forgot Password" text is pressed
-                    _showForgotPasswordDialog(context);
+                    showCustomDialog(
+                      context: context, 
+                      title: "Reset Password", 
+                      content: "Do you want to reset your password?", 
+                      confirmText: "Yes", 
+                      cancelText: "No", 
+                      onConfirm: () => Navigator.of(context).pop(),);
                   },
-                  child: Container(margin: EdgeInsets.only(right: 10),child: Icon(Iconsax.info_circle, color: Colors.blue)),
+                  child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      child: Icon(Iconsax.info_circle, color: Colors.blue)),
                 ),
-                
               ],
             ),
             SizedBox(
@@ -61,7 +77,9 @@ class MyLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  successMessage(context, "Signin successful");
+                },
                 child: Text(TTexts.signIn),
               ),
             ),
@@ -71,41 +89,15 @@ class MyLoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => SignupScreen());
+                },
                 child: Text(TTexts.createAccount),
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-
-  // Function to show dialog with the "Forgot Password" action
-  void _showForgotPasswordDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Forgot Password'),
-          content: Text('Do you want to reset your password?'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                // Reset password action
-                Navigator.of(context).pop(); // Close dialog
-              },
-              child: Text('Yes'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(); // Close dialog
-              },
-              child: Text('No'),
-            ),
-          ],
-        );
-      },
     );
   }
 }

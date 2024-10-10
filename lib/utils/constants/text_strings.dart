@@ -9,6 +9,7 @@ class TTexts {
   static const String submit = "Submit";
   static const String appName = "Bongo Mart";
   static const String tContinue = "Continue";
+  static const String alreadyHaveAccount = "Already have an account?";
 
 
   // -- OnBoarding Texts
