@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bongo_mart/features/authentication/screens/signup/vertify_email.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -160,8 +163,16 @@ class SignUpForm extends StatelessWidget {
               ),
             ],
           ),
-              SizedBox(height: TSizes.spaceBtwInputFields,),
-              SizedBox(width: double.infinity, child: ElevatedButton(child: Text(TTexts.createAccount), onPressed: (){})),
+          SizedBox(
+            height: TSizes.spaceBtwInputFields,
+          ),
+          SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  child: Text(TTexts.createAccount), 
+                  onPressed: ()=>Get.to(()=>VertifyEmailScreen())
+              )
+          ),
         ],
       ),
     );

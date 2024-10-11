@@ -20,14 +20,14 @@ class MySocialButtons extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: (){},
-            icon: Image(
+            icon: const Image(
               width: TSizes.iconMd,
               height: TSizes.iconMd,
               image: AssetImage(TImages.google),
             ),
           ),
         ),
-        SizedBox(width: TSizes.spaceBtwItems,),
+        const SizedBox(width: TSizes.spaceBtwItems,),
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: TColors.grey),
@@ -35,7 +35,7 @@ class MySocialButtons extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: (){},
-            icon: Image(
+            icon: const Image(
               width: TSizes.iconMd,
               height: TSizes.iconMd,
               image: AssetImage(TImages.facebook),

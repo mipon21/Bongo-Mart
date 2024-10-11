@@ -4,8 +4,6 @@ import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingDotNavigation extends StatelessWidget {

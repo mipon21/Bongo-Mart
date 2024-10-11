@@ -18,9 +18,9 @@ class OnBoardingNextButton extends StatelessWidget {
           OnBoardingController.find.nextPage();
         },
         style: ElevatedButton.styleFrom(
-          shape: CircleBorder()
+          shape: const CircleBorder()
         ),
-         child: Icon(Icons.arrow_forward_ios_outlined,)
+         child: const Icon(Icons.arrow_forward_ios_outlined,)
          )
     );
   }

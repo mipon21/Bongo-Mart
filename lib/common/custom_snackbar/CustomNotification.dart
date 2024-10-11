@@ -17,7 +17,7 @@ ToastificationItem successMessage(BuildContext context, String message) {
     direction: TextDirection.ltr,
     animationDuration: const Duration(milliseconds: 300),
     dismissDirection: DismissDirection.horizontal,
-    icon: Icon(
+    icon: const Icon(
       Icons.done_all_rounded,
         color: Colors.green,
     ),

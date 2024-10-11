@@ -1,7 +1,5 @@
 import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MyFormDevider extends StatelessWidget {
   const MyFormDevider({

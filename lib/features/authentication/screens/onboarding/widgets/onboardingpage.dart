@@ -20,7 +20,7 @@ class OnBoardingPage extends StatelessWidget {
             image: AssetImage(image)
             ),
             Text(title, style: Theme.of(context).textTheme.headlineMedium,textAlign: TextAlign.center,),
-            SizedBox(height: TSizes.spaceBtwItems,),
+            const SizedBox(height: TSizes.spaceBtwItems,),
             Text(subtitle, style: Theme.of(context).textTheme.bodyMedium,textAlign: TextAlign.center,),
         ],
       ),

@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           ? Lottie.asset("assets/animation/bongo-mart-logo-dark.json")
           : Lottie.asset("assets/animation/bongo-mart-logo-light.json"),
       nextScreen: const OnBoarding(),
-      backgroundColor: isDark ? Color(0xFF1D4164) : Colors.white, // Set the background color
+      backgroundColor: isDark ? const Color(0xFF1D4164) : Colors.white, // Set the background color
     );
   }
 }

@@ -4,13 +4,11 @@ import 'package:bongo_mart/common/widgets_login_signup/myformdevider.dart';
 import 'package:bongo_mart/common/widgets_login_signup/mysocialbuttons.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/widgets/allreadyhaveaccount.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/widgets/signupform.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
