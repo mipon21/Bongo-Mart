@@ -4,6 +4,7 @@ import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
 import 'package:bongo_mart/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
+import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class MyLoginForm extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    showCustomDialog(
+                    showCustomCupertinoDialog(
                       context: context, 
                       title: "Reset Password", 
                       content: "Do you want to reset your password?", 
@@ -79,6 +80,7 @@ class MyLoginForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   successMessage(context, "Signin successful");
+                  Get.to(NavigationMenu());
                 },
                 child: Text(TTexts.signIn),
               ),

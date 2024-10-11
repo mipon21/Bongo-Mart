@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:bongo_mart/common/widgets_login_signup/myformdevider.dart';
-import 'package:bongo_mart/common/widgets_login_signup/mysocialbuttons.dart';
-import 'package:bongo_mart/features/authentication/screens/signup/widgets/allreadyhaveaccount.dart';
-import 'package:bongo_mart/features/authentication/screens/signup/widgets/signupform.dart';
+import 'package:bongo_mart/common/widgets/widgets_login_signup/myformdevider.dart';
+import 'package:bongo_mart/common/widgets/widgets_login_signup/mysocialbuttons.dart';
+import 'package:bongo_mart/features/authentication/screens/signup/widgets/allready_have_account.dart';
+import 'package:bongo_mart/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';

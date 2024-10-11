@@ -3,6 +3,7 @@ import 'package:bongo_mart/features/authentication/screens/password_configuratio
 import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/vertify_email.dart';
 import 'package:bongo_mart/features/authentication/screens/splash/splashscreen.dart';
+import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
-      home: const SplashScreen()
+      home: const NavigationMenu()
     );
   }
 }

@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
+import 'package:bongo_mart/features/authentication/screens/login/login.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/vertify_email.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
@@ -169,10 +171,11 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                  child: Text(TTexts.createAccount), 
-                  onPressed: ()=>Get.to(()=>VertifyEmailScreen())
-              )
-          ),
+                  child: Text(TTexts.createAccount),
+                  onPressed: () {
+                    Get.to(VertifyEmailScreen());
+                    successMessage(context, "Account is awaiting verification");
+                  })),
         ],
       ),
     );

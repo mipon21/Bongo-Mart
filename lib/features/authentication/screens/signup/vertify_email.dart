@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:bongo_mart/common/widgets_login_signup/success_screen/success_screen.dart';
+import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
+import 'package:bongo_mart/common/widgets/widgets_login_signup/success_screen/success_screen.dart';
 import 'package:bongo_mart/features/authentication/screens/login/login.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
@@ -75,7 +76,10 @@ class VertifyEmailScreen extends StatelessWidget {
                           title: TTexts.yourAccountCreatedTitle,
                           subtitle: TTexts.yourAccountCreatedSubTitle,
                           buttonText: TTexts.tContinue,
-                          onPressed: () => Get.offAll(() => const LoginScreen()))),
+                          onPressed: () {
+                            Get.offAll(() => LoginScreen());
+                            successMessage(context, "Verified! Please Login");
+                          })),
                       child: Text(TTexts.tContinue))),
               SizedBox(
                 height: TSizes.spaceBtwItems,
