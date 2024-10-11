@@ -4,6 +4,7 @@ import 'package:bongo_mart/common/widgets_login_signup/myformdevider.dart';
 import 'package:bongo_mart/common/widgets_login_signup/mysocialbuttons.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/widgets/allreadyhaveaccount.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/widgets/signupform.dart';
+import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
@@ -17,7 +18,11 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Get.back();
+        }, icon: Icon(Icons.arrow_back_ios_new_rounded, color: isDark ? TColors.white : TColors.black,)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),

@@ -1,4 +1,5 @@
 import 'package:bongo_mart/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:bongo_mart/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/vertify_email.dart';
 import 'package:bongo_mart/features/authentication/screens/splash/splashscreen.dart';
@@ -19,7 +20,7 @@ class App extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
-      home: const VertifyEmailScreen()
+      home: const SplashScreen()
     );
   }
 }

@@ -2,6 +2,7 @@
 
 import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
+import 'package:bongo_mart/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:bongo_mart/features/authentication/screens/signup/signup.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
@@ -62,7 +63,7 @@ class MyLoginForm extends StatelessWidget {
                       content: "Do you want to reset your password?", 
                       confirmText: "Yes", 
                       cancelText: "No", 
-                      onConfirm: () => Navigator.of(context).pop(),);
+                      onConfirm: () => Get.to(() => ForgetPasswordScreen()),);
                   },
                   child: Container(
                       margin: EdgeInsets.only(right: 10),
