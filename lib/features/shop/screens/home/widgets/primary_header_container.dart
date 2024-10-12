@@ -1,6 +1,7 @@
 import 'package:bongo_mart/common/widgets/curved_edges/curved_edges_widget.dart';
 import 'package:bongo_mart/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
+import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class MyPrimaryHeaderContainer extends StatelessWidget {
@@ -12,11 +13,12 @@ class MyPrimaryHeaderContainer extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
+    final isDark = THelperFunctions.isDarkMode(context);
     return MyCurvedEdgesWidgets(
       child: SizedBox(
         height: 400,
         child: Container(
-          color: TColors.primary,
+          color: isDark ? TColors.secondary : TColors.primary,
           padding: EdgeInsets.all(0),
           margin: EdgeInsets.all(0),
           child: Stack(
