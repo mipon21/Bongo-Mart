@@ -20,7 +20,7 @@ class MySearchContainer extends StatelessWidget {
       width: TDeviceUtils.getScreenWidth(context) * 0.9,
       padding: EdgeInsets.all(TSizes.md),
       decoration: BoxDecoration(
-        color: showBackground ? isDark ? TColors.black : TColors.light : Colors.transparent,
+        color: showBackground ? isDark ? TColors.secondary.withOpacity(0.1) : TColors.light : Colors.transparent,
         borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
         border: showBorder ? Border.all(color: TColors.grey) : null,
       ),

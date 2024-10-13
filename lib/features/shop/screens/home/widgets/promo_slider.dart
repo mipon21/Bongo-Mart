@@ -4,6 +4,7 @@ import 'package:bongo_mart/features/shop/controllers/home_contoller.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
+import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,7 @@ class MyPromoSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(HomeController());
+    final isDark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
         CarouselSlider(
@@ -47,7 +49,7 @@ class MyPromoSlider extends StatelessWidget {
                   height: 4,
                   margin: const EdgeInsets.only(right: 10),
                   backgroundColor: controller.carousalCurrentIndex.value == i
-                      ? TColors.primary
+                      ? isDark ? TColors.secondary : TColors.primary
                       : TColors.grey,
                 ),
             ],

@@ -9,7 +9,9 @@ import 'package:bongo_mart/common/widgets/curved_edges/curved_edges_widget.dart'
 import 'package:bongo_mart/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:bongo_mart/common/widgets/custom_shapes/search_container.dart';
 import 'package:bongo_mart/common/widgets/images/my_rounded_image.dart';
+import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
 import 'package:bongo_mart/common/widgets/vertical_image_text/vertical_image_text.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/home_appbar.dart';
@@ -73,12 +75,26 @@ class HomeScreen extends StatelessWidget {
             )),
             Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
-              child: MyPromoSlider(
-                autoPlay: true,
-                promoImages: [
-                  TImages.promoBanner1,
-                  TImages.promoBanner2,
-                  TImages.promoBanner3,
+              child: Column(
+                children: [
+                  MyPromoSlider(
+                    autoPlay: true,
+                    promoImages: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+                  //--Popular Products--//
+
+                  MyGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) => MyProductCardVertical(),
+                  )
                 ],
               ),
             )
@@ -88,4 +104,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

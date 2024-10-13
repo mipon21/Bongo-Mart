@@ -35,7 +35,7 @@ class MyVerticalImageText extends StatelessWidget {
               height: 56,
               padding: EdgeInsets.all(TSizes.md),
               decoration: BoxDecoration(
-                color: backgroundColor ?? (isDark ? TColors.black : TColors.white),
+                color: backgroundColor ?? (isDark ? TColors.light : TColors.white),
                 borderRadius: BorderRadius.circular(100),
                 boxShadow: [
                   BoxShadow(
@@ -50,7 +50,7 @@ class MyVerticalImageText extends StatelessWidget {
                 child: Image(
                   image: AssetImage(image), // Replace with your image asset
                   fit: BoxFit.cover,
-                  color: isDark ? TColors.white : TColors.black,
+                  color: isDark ? TColors.black : TColors.black,
                 ),
               ),
             ),
