@@ -29,7 +29,15 @@ class MySectionHeading extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         if (showViewAll)
-          TextButton(onPressed: onPressed, child: Text(buttonTitle))
+          TextButton(
+              onPressed: onPressed,
+              child: Text(
+                buttonTitle,
+                style: Theme.of(context)
+                    .textTheme
+                    .labelLarge!
+                    .apply(color: titleColor),
+              ))
       ],
     );
   }
