@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bongo_mart/features/shop/cart/cart_screen.dart';
+import 'package:bongo_mart/features/personalization/screens/settings/settings.dart';
+import 'package:bongo_mart/features/shop/screens/favourite/favourite_screen.dart';
 import 'package:bongo_mart/features/shop/screens/home/home_screen.dart';
 import 'package:bongo_mart/features/shop/screens/store/store.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
@@ -47,9 +50,9 @@ class NavigationController extends GetxController {
   final screenList = [
     HomeScreen(),
     StoreScreen(),
-    Container(color: Colors.blue,),
-    Container(color: Colors.yellow,),
-    Container(color: Colors.purple,),
+    CartScreen(),
+    FavouriteScreen(),
+    SettingsScreen(),
   ];
 
 }

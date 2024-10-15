@@ -18,7 +18,7 @@ class MySearchContainer extends StatelessWidget {
     final isDark = THelperFunctions.isDarkMode(context);
     return Container(
       width: TDeviceUtils.getScreenWidth(context) * 0.9,
-      padding: EdgeInsets.all(TSizes.md),
+      padding: const EdgeInsets.all(TSizes.md),
       decoration: BoxDecoration(
         color: showBackground ? isDark ? TColors.secondary.withOpacity(0.1) : TColors.light : Colors.transparent,
         borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
@@ -27,7 +27,7 @@ class MySearchContainer extends StatelessWidget {
       child: Row(
         children: [
           Icon(icon, color: TColors.darkGrey,),
-          SizedBox(width: TSizes.spaceBtwItems,),
+          const SizedBox(width: TSizes.spaceBtwItems,),
           Text(text, style: Theme.of(context).textTheme.bodySmall),
         ],
       ),

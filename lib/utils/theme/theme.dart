@@ -4,6 +4,7 @@ import 'package:bongo_mart/utils/theme/widget_themes/checkbox_theme.dart';
 import 'package:bongo_mart/utils/theme/widget_themes/chip_theme.dart';
 import 'package:bongo_mart/utils/theme/widget_themes/elevated_button_theme.dart';
 import 'package:bongo_mart/utils/theme/widget_themes/outlined_button_theme.dart';
+import 'package:bongo_mart/utils/theme/widget_themes/switch_theme.dart';
 import 'package:bongo_mart/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:bongo_mart/utils/theme/widget_themes/text_theme.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class TAppTheme {
     disabledColor: TColors.grey,
     brightness: Brightness.light,
     primaryColor: TColors.primary,
+    switchTheme: TSwitchTheme.lightSwitchTheme,
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
     scaffoldBackgroundColor: TColors.white,
@@ -35,6 +37,7 @@ class TAppTheme {
     disabledColor: TColors.grey,
     brightness: Brightness.dark,
     primaryColor: TColors.primary,
+    switchTheme: TSwitchTheme.darkSwitchTheme,
     textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
     scaffoldBackgroundColor:TColors.dark,

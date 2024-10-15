@@ -1,5 +1,4 @@
 import 'package:bongo_mart/utils/constants/enums.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class MyBrandTitleText extends StatelessWidget {

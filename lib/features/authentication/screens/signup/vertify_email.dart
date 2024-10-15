@@ -10,7 +10,6 @@ import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class VertifyEmailScreen extends StatelessWidget {
   const VertifyEmailScreen({super.key});

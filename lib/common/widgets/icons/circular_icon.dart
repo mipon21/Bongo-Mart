@@ -2,7 +2,6 @@ import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class MyCircularFavoriteIcon extends StatelessWidget {
   const MyCircularFavoriteIcon({

@@ -33,7 +33,7 @@ class MyVerticalImageText extends StatelessWidget {
             Container(
               width: 56,
               height: 56,
-              padding: EdgeInsets.all(TSizes.md),
+              padding: const EdgeInsets.all(TSizes.md),
               decoration: BoxDecoration(
                 color: backgroundColor ?? (isDark ? TColors.light : TColors.white),
                 borderRadius: BorderRadius.circular(100),
@@ -42,7 +42,7 @@ class MyVerticalImageText extends StatelessWidget {
                     color: Colors.grey.withOpacity(0.3),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -54,7 +54,7 @@ class MyVerticalImageText extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8), // Spacing between icon and text
+            const SizedBox(height: 8), // Spacing between icon and text
             SizedBox(
               width: 55,
               child: Text(

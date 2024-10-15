@@ -9,9 +9,7 @@ import 'package:bongo_mart/common/widgets/text/product_title.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
-import 'package:bongo_mart/utils/theme/widget_themes/shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -92,7 +90,7 @@ class MyProductCardVertical extends StatelessWidget {
             ),
 
             SizedBox(height: TSizes.spaceBtwItems / 2),
-            //Details
+            //-------------Details-------------//
             Padding(
               padding: const EdgeInsets.only(left: TSizes.sm),
               child: Column(

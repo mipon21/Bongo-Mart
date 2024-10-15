@@ -1,6 +1,5 @@
 import 'package:bongo_mart/features/authentication/controllers%20onbording/onboarding_controller.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingNextButton extends StatelessWidget {

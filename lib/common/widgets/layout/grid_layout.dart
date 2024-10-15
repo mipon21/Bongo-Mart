@@ -1,4 +1,3 @@
-import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 

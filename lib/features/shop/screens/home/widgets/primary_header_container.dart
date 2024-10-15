@@ -9,14 +9,17 @@ class MyPrimaryHeaderContainer extends StatelessWidget {
   const MyPrimaryHeaderContainer({
     super.key,
     required this.child,
+    this.height,
   });
 
   final Widget child;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return MyCurvedEdgesWidgets(
       child: SizedBox(
+        height: height,
         child: Container(
           color: isDark ? TColors.secondary : TColors.primary,
           padding: const EdgeInsets.only(bottom: TSizes.md),

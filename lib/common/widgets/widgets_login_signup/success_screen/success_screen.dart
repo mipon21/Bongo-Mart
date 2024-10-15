@@ -1,12 +1,8 @@
 import 'package:bongo_mart/common/style/spacing_style.dart';
-import 'package:bongo_mart/features/authentication/screens/login/login.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen(
@@ -32,7 +28,7 @@ class SuccessScreen extends StatelessWidget {
               image: AssetImage(image),
               width: THelperFunctions.screenWidth() * 0.6,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
 
@@ -42,7 +38,7 @@ class SuccessScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
             Text(
@@ -50,13 +46,13 @@ class SuccessScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.labelMedium,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: onPressed, child: Text(TTexts.tContinue))),
+                    onPressed: onPressed, child: const Text(TTexts.tContinue))),
           ],
         ),
       )),

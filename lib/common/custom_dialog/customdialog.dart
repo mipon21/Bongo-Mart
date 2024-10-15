@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart'; // For context use
+// For context use
 
 // Reusable Custom Cupertino Dialog function
 void showCustomCupertinoDialog({
@@ -23,9 +23,9 @@ void showCustomCupertinoDialog({
             child: Text(confirmText),
           ),
           CupertinoDialogAction(
-            onPressed: onCancel ?? () => Navigator.of(context).pop(), // Action for cancel button (optional)
-            child: Text(cancelText),
-            isDestructiveAction: true, // Destructive action for cancel
+            onPressed: onCancel ?? () => Navigator.of(context).pop(),
+            isDestructiveAction: true, // Action for cancel button (optional)
+            child: Text(cancelText), // Destructive action for cancel
           ),
         ],
       );
