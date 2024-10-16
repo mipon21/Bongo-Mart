@@ -1,8 +1,10 @@
 import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
+import 'package:bongo_mart/features/personalization/screens/profile/profile.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MyUserProfile extends StatelessWidget {
@@ -16,10 +18,10 @@ class MyUserProfile extends StatelessWidget {
     final isDark = THelperFunctions.isDarkMode(context);
     return ListTile(
         leading: MyCircularImage(
+          isDark: isDark,
           padding: EdgeInsets.zero,
           width: 50,
           height: 50,
-          isDark: isDark,
           imageUrl: TImages.user,
         ),
         title: Text(
@@ -37,7 +39,7 @@ class MyUserProfile extends StatelessWidget {
               .apply(color: TColors.white),
         ),
         trailing: IconButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => ProfileScreen()),
             icon: const Icon(
               Iconsax.edit,
               color: TColors.white,

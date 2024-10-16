@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:bongo_mart/common/widgets/list_tile/user_profile_tile.dart';
@@ -157,7 +158,14 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () => Get.to(LoginScreen()),
+                        onPressed: () => showCustomCupertinoDialog(
+                              context: context,
+                              title: 'Logout !!!',
+                              content: 'Do You Want to Logout?',
+                              confirmText: 'Yes',
+                              cancelText: 'No',
+                              onConfirm: () => Get.to(LoginScreen()),
+                            ),
                         child: Text('Logout')),
                   )
                 ],

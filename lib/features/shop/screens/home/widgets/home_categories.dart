@@ -18,10 +18,9 @@ class MyHomeCategories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
           return const MyVerticalImageText(
-            image: TImages.shoeIcon,
+            image: TImages.acerlogo,
             title: "Shoes",
-            textColor: TColors.white,
-            
+            textColor: TColors.white, 
           );
         },
       ),
