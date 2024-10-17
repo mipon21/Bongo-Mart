@@ -73,11 +73,12 @@ class StoreScreen extends StatelessWidget {
                             height: TSizes.spaceBtwItems / 1.5,
                           ),
                           MyGridLayout(
-                              mainAxisExtent: 80,
-                              itemCount: 4,
-                              itemBuilder: (_, index) {
-                                return MyBrandCard();
-                              })
+                            mainAxisExtent: 80,
+                            itemCount: 4,
+                            itemBuilder: (_, index) {
+                              return MyBrandCard();
+                            },
+                          ),
                         ],
                       ),
                     ),

@@ -11,7 +11,7 @@ class MyRoundedImage extends StatelessWidget {
     this.fit,
     this.applyBorderRadius = false,
     this.border,
-    this.backgroundColor = TColors.light,
+    this.backgroundColor,
     this.padding,
     this.isNetworkImage = false,
     this.onPressed,
@@ -23,7 +23,7 @@ class MyRoundedImage extends StatelessWidget {
   final BoxFit? fit;
   final bool applyBorderRadius;
   final BoxBorder? border;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;
   final VoidCallback? onPressed;

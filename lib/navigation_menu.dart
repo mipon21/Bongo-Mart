@@ -1,5 +1,6 @@
-import 'package:bongo_mart/features/shop/cart/cart_screen.dart';
+
 import 'package:bongo_mart/features/personalization/screens/settings/settings.dart';
+import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
 import 'package:bongo_mart/features/shop/screens/favourite/favourite_screen.dart';
 import 'package:bongo_mart/features/shop/screens/home/home_screen.dart';
 import 'package:bongo_mart/features/shop/screens/store/store.dart';
