@@ -31,7 +31,7 @@ class MyRatingProgressIndicator extends StatelessWidget {
               value: rating,
               minHeight: 11,
               backgroundColor: Colors.grey,
-              valueColor: AlwaysStoppedAnimation<Color>(
+              valueColor: const AlwaysStoppedAnimation<Color>(
                   TColors.primary),
               borderRadius: BorderRadius.circular(7),
             ),

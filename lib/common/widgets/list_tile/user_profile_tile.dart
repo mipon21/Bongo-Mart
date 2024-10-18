@@ -39,7 +39,7 @@ class MyUserProfile extends StatelessWidget {
               .apply(color: TColors.white),
         ),
         trailing: IconButton(
-            onPressed: () => Get.to(() => ProfileScreen()),
+            onPressed: () => Get.to(() => const ProfileScreen()),
             icon: const Icon(
               Iconsax.edit,
               color: TColors.white,

@@ -52,7 +52,7 @@ class NavigationMenu extends StatelessWidget {
       duration: const Duration(milliseconds: 300), // Adjust the duration as necessary
       transitionBuilder: (Widget child, Animation<double> animation) {
         const offset = 0.1;
-        final tween = Tween<Offset>(begin: Offset(0, offset), end: Offset.zero);
+        final tween = Tween<Offset>(begin: const Offset(0, offset), end: Offset.zero);
         final offsetAnimation = tween.animate(animation);
         return SlideTransition(
           position: offsetAnimation,
@@ -68,7 +68,7 @@ class NavigationMenu extends StatelessWidget {
 
   String _buildEllipsizedLabel(String label) {
     // Return the label string for the BottomNavigationBarItem
-    return label.length > 8 ? label.substring(0, 8) + '...' : label;
+    return label.length > 8 ? '${label.substring(0, 8)}...' : label;
   }
 }
 
@@ -76,10 +76,10 @@ class NavigationController extends GetxController {
   final Rx<int> _selectedIndex = 0.obs;
 
   final screenList = [
-    HomeScreen(),
-    StoreScreen(),
-    CartScreen(),
-    FavouriteScreen(),
-    SettingsScreen(),
+    const HomeScreen(),
+    const StoreScreen(),
+    const CartScreen(),
+    const FavouriteScreen(),
+    const SettingsScreen(),
   ];
 }

@@ -16,7 +16,6 @@ import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetails extends StatelessWidget {

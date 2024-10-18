@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:bongo_mart/common/widgets/icons/brand_title_with_verified_icon.dart';
-import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
 import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/enums.dart';
@@ -9,7 +8,6 @@ import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class MyBottomAddToCart extends StatelessWidget {
   const MyBottomAddToCart({super.key});

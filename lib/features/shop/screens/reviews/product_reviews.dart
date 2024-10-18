@@ -3,15 +3,10 @@
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/ratingbar/rating_bar_uni.dart';
 import 'package:bongo_mart/features/shop/screens/reviews/widgets/over_all_rating.dart';
-import 'package:bongo_mart/features/shop/screens/reviews/widgets/rating_progress_indicator.dart';
 import 'package:bongo_mart/features/shop/screens/reviews/widgets/user_review_card.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class ProductReviews extends StatelessWidget {
   const ProductReviews({super.key});
