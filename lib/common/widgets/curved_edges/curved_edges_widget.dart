@@ -1,5 +1,5 @@
 
-import 'package:bongo_mart/common/widgets/curved_edges/curved_edges.dart';
+import 'curved_edges.dart';
 import 'package:flutter/material.dart';
 
 class MyCurvedEdgesWidgets extends StatelessWidget {

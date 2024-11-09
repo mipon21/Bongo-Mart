@@ -9,6 +9,7 @@ import 'package:bongo_mart/features/authentication/screens/login/login.dart';
 import 'package:bongo_mart/features/personalization/screens/address/addresses.dart';
 import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
+import 'package:bongo_mart/features/shop/screens/order/order.dart';
 import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
@@ -77,7 +78,7 @@ class SettingsScreen extends StatelessWidget {
                     subtitle: 'Add or remove products and move to checkout',
                   ),
                   MySettingsMenuTile(
-                    onTap: () {},
+                    onTap: () => Get.to(() => const OrderScreen()),
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'View Your Order History',

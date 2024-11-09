@@ -5,6 +5,7 @@ import 'package:bongo_mart/common/widgets/custom_shapes/search_container.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/screens/all_products/all_products.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
@@ -13,8 +14,8 @@ import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/device/device_utility.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +23,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = THelperFunctions.isDarkMode(context);
     final isDesktop = TDeviceUtils.isDesktop(context);
     return Scaffold(
       body: SingleChildScrollView(
@@ -80,7 +80,9 @@ class HomeScreen extends StatelessWidget {
                   MySectionHeading(
                     title: 'Popular Products',
                     showViewAll: true,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => AllProducts());
+                    },
                   ),
 
                   SizedBox(

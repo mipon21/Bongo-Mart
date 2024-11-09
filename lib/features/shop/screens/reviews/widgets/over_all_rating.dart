@@ -1,5 +1,5 @@
 
-import 'package:bongo_mart/features/shop/screens/reviews/widgets/rating_progress_indicator.dart';
+import 'rating_progress_indicator.dart';
 import 'package:flutter/material.dart';
 
 class MyOverAllRating extends StatelessWidget {

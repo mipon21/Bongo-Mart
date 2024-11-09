@@ -1,11 +1,11 @@
 
-import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
-import 'package:bongo_mart/common/widgets/curved_edges/curved_edges_widget.dart';
-import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
-import 'package:bongo_mart/common/widgets/images/my_rounded_image.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
+import '../../../../../common/widgets/appbar/appbar.dart';
+import '../../../../../common/widgets/curved_edges/curved_edges_widget.dart';
+import '../../../../../common/widgets/icons/circular_icon.dart';
+import '../../../../../common/widgets/images/my_rounded_image.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

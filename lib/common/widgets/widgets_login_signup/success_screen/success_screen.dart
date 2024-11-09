@@ -1,6 +1,6 @@
-import 'package:bongo_mart/common/style/spacing_style.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../../../style/spacing_style.dart';
+import '../../../../utils/constants/sizes.dart';
+import '../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class SuccessScreen extends StatelessWidget {

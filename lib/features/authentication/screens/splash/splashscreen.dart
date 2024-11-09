@@ -1,6 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:bongo_mart/features/authentication/screens/onboarding/onboarding.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../onboarding/onboarding.dart';
+import '../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

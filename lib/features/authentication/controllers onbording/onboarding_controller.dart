@@ -1,4 +1,4 @@
-import 'package:bongo_mart/features/authentication/screens/login/login.dart';
+import '../screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

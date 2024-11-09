@@ -1,8 +1,8 @@
-import 'package:bongo_mart/common/style/rounded_container.dart';
-import 'package:bongo_mart/features/shop/screens/store/widgets/brand_card.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../../../../../common/style/rounded_container.dart';
+import 'brand_card.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class MyBrandShowcase extends StatelessWidget {

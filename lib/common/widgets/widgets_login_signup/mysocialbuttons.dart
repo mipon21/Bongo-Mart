@@ -1,6 +1,6 @@
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class MySocialButtons extends StatelessWidget {

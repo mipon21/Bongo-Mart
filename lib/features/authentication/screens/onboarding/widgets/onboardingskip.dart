@@ -1,8 +1,8 @@
 
-import 'package:bongo_mart/features/authentication/controllers%20onbording/onboarding_controller.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/constants/text_strings.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
+import '../../../controllers%20onbording/onboarding_controller.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/constants/text_strings.dart';
+import '../../../../../utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingSkip extends StatelessWidget {

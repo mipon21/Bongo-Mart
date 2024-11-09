@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
-import 'package:bongo_mart/common/style/rounded_container.dart';
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/features/personalization/screens/address/add_new_address.dart';
 import 'package:bongo_mart/features/personalization/screens/address/widgets/single_address.dart';

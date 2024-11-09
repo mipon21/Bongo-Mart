@@ -1,5 +1,5 @@
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class MyCircularImage extends StatelessWidget {

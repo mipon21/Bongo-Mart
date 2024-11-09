@@ -1,4 +1,4 @@
-import 'package:bongo_mart/utils/constants/colors.dart';
+import '../../../utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class MyFormDevider extends StatelessWidget {

@@ -2,16 +2,20 @@
 
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/custom_shapes/search_container.dart';
+import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:bongo_mart/common/widgets/tabbar/tabbar.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/screens/brand/all_brand.dart';
 import 'package:bongo_mart/features/shop/screens/store/widgets/brand_card.dart';
 import 'package:bongo_mart/features/shop/screens/store/widgets/category_tab.dart';
+import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -20,6 +24,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
+    NavigationController navigationController = Get.put(NavigationController());
     return DefaultTabController(
       length: 6,
       child: Scaffold(
@@ -29,10 +34,12 @@ class StoreScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           actions: [
-            MyCartCounterIcon(
-              onPressed: () {},
-              iconColor: isDark ? TColors.white : TColors.dark,
-            ),
+            MyCircularFavoriteIcon(
+            icon: Iconsax.shop,
+            width: 40,
+              height: 40,
+              color: isDark ? TColors.light : TColors.dark,
+            )
           ],
         ),
         body: NestedScrollView(
@@ -67,7 +74,9 @@ class StoreScreen extends StatelessWidget {
                           MySectionHeading(
                             title: 'Featured Brands',
                             showViewAll: true,
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => AllBrandScreen());
+                            },
                           ),
                           SizedBox(
                             height: TSizes.spaceBtwItems / 1.5,

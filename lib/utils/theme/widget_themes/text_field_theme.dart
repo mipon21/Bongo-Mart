@@ -1,4 +1,4 @@
-import 'package:bongo_mart/utils/constants/colors.dart';
+import '../../constants/colors.dart';
 import 'package:flutter/material.dart';
 import '../../constants/sizes.dart';
 

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class MyProductPrice extends StatelessWidget {
@@ -18,9 +20,11 @@ class MyProductPrice extends StatelessWidget {
       currencySign + price,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
-      style: isLarge 
-      ? Theme.of(context).textTheme.headlineMedium!.apply(decoration: lineThrough? TextDecoration.lineThrough : null)
-      : Theme.of(context).textTheme.titleLarge!.apply(decoration: lineThrough? TextDecoration.lineThrough : null),
+      style: isLarge
+          ? Theme.of(context).textTheme.headlineMedium!.apply(
+              decoration: lineThrough ? TextDecoration.lineThrough : null)
+          : Theme.of(context).textTheme.titleLarge!.apply(
+              decoration: lineThrough ? TextDecoration.lineThrough : null),
     );
   }
 }

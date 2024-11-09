@@ -5,7 +5,9 @@ import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/features/shop/screens/home/home_screen.dart';
+import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
+import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -15,6 +17,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: MyAppBar(
         title: Text(
@@ -23,10 +26,11 @@ class FavouriteScreen extends StatelessWidget {
         ),
         actions: [
           MyCircularFavoriteIcon(
-              backgroundColor: Colors.transparent,
-              size: 32,
-              icon: Iconsax.add,
-              onPressed: () => Get.to(HomeScreen())),
+            icon: Iconsax.heart,
+            width: 40,
+              height: 40,
+              color: isDark ? TColors.light : TColors.dark,
+            )
         ],
       ),
       body: SingleChildScrollView(

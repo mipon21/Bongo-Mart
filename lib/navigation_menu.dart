@@ -1,10 +1,10 @@
-import 'package:bongo_mart/features/personalization/screens/settings/settings.dart';
-import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
-import 'package:bongo_mart/features/shop/screens/favourite/favourite_screen.dart';
-import 'package:bongo_mart/features/shop/screens/home/home_screen.dart';
-import 'package:bongo_mart/features/shop/screens/store/store.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import 'features/personalization/screens/settings/settings.dart';
+import 'features/shop/screens/cart/cart_screen.dart';
+import 'features/shop/screens/favourite/favourite_screen.dart';
+import 'features/shop/screens/home/home_screen.dart';
+import 'features/shop/screens/store/store.dart';
+import 'utils/constants/colors.dart';
+import 'utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

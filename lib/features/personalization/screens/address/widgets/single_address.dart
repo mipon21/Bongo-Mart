@@ -47,7 +47,7 @@ class MySingleAddress extends StatelessWidget {
               Row(
                 children: [
                   Icon(Iconsax.user, size: 18, color: Colors.grey,),
-                  SizedBox(width: TSizes.spaceBtwItems,),
+                  SizedBox(width: TSizes.spaceBtwItems/2,),
                   Text(
                     'Mipon Rahman',
                     maxLines: 1,
@@ -60,7 +60,7 @@ class MySingleAddress extends StatelessWidget {
               Row(
                 children: [
                   Icon(Iconsax.call, size: 18, color: Colors.grey,),
-                  SizedBox(width: TSizes.spaceBtwItems,),
+                  SizedBox(width: TSizes.spaceBtwItems/2,),
                   Text(
                     '(+880) 1712345678',
                     maxLines: 1,
@@ -75,7 +75,7 @@ class MySingleAddress extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Iconsax.location, size: 18, color: Colors.grey,),
-                  SizedBox(width: TSizes.spaceBtwItems,),
+                  SizedBox(width: TSizes.spaceBtwItems/2,),
                   Expanded(
                     child: Text(
                       '40/14 Jalalabad R/A, Sylhet Sadar, Sylhet, Postal Code: 3100',

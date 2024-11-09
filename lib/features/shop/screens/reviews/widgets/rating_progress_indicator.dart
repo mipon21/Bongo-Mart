@@ -1,6 +1,6 @@
 
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class MyRatingProgressIndicator extends StatelessWidget {

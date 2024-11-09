@@ -1,7 +1,7 @@
-import 'package:bongo_mart/common/widgets/text/brand_title_text.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/enums.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
+import '../text/brand_title_text.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/enums.dart';
+import '../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -31,6 +31,7 @@ class MyBrandTitleWithVerifiedIcon extends StatelessWidget {
             child: MyBrandTitleText(
           title: title,
           textColor: textColor,
+          brandTitleSize: brandTitleSize,
           maxLines: maxLines,
           textAlign: textAlign,
         )),

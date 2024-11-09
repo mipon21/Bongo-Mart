@@ -8,6 +8,7 @@ import 'package:bongo_mart/features/shop/screens/cart/cart_items.dart';
 import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+import 'package:bongo_mart/features/shop/screens/order/order.dart';
 import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
@@ -22,7 +23,6 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
-    NavigationController navigationController = Get.put(NavigationController());
     return Scaffold(
       appBar: MyAppBar(
         title: Text(
@@ -84,10 +84,9 @@ class CheckoutScreen extends StatelessWidget {
                 title: 'Payment Successful!',
                 subtitle:
                     'Your order has been placed successfully.Product will be deliver soon!',
-                buttonText: 'Continue Shopping',
+                buttonText: 'Track Order',
                 onPressed: () {
-                  navigationController.selectedIndex.value = 0;
-                  Get.offAll(() => const NavigationMenu());
+                  Get.offAll(() => const OrderScreen());
                 },
               ),
             );

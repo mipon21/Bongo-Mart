@@ -1,11 +1,11 @@
-import 'package:bongo_mart/common/style/rounded_container.dart';
-import 'package:bongo_mart/common/widgets/icons/brand_title_with_verified_icon.dart';
-import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/enums.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../../../../../common/style/rounded_container.dart';
+import '../../../../../common/widgets/icons/brand_title_with_verified_icon.dart';
+import '../../../../../common/widgets/images/my_circular_Image.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/enums.dart';
+import '../../../../../utils/constants/image_strings.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class MyBrandCard extends StatelessWidget {

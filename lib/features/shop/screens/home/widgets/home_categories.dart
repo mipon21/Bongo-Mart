@@ -1,6 +1,9 @@
-import 'package:bongo_mart/common/widgets/vertical_image_text/vertical_image_text.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
+import 'package:bongo_mart/features/shop/screens/sub_category/sub_category.dart';
+import 'package:get/get.dart';
+
+import '../../../../../common/widgets/vertical_image_text/vertical_image_text.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 
 class MyHomeCategories extends StatelessWidget {
@@ -17,10 +20,11 @@ class MyHomeCategories extends StatelessWidget {
         itemCount: 6,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
-          return const MyVerticalImageText(
+          return MyVerticalImageText(
             image: TImages.acerlogo,
             title: "Shoes",
             textColor: TColors.white, 
+            onPressed: () => Get.to(const SubCategoryScreen()),
           );
         },
       ),

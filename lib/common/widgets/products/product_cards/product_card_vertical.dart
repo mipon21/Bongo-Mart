@@ -29,7 +29,7 @@ class MyProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
           //boxShadow: [MyShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: isDark ? TColors.secondary : TColors.light,
+          color: isDark ? TColors.secondary : TColors.grey,
         ),
         child: Column(
           children: [
@@ -39,7 +39,7 @@ class MyProductCardVertical extends StatelessWidget {
               child: MyRoundedContainer(
                 width: double.infinity,
                 padding: EdgeInsets.all(TSizes.sm),
-                backgroundColor: isDark ? TColors.secondary : TColors.light,
+                backgroundColor: isDark ? TColors.secondary : TColors.grey,
                 child: Stack(
                   children: [
                     //Thumbnail Image
@@ -110,7 +110,7 @@ class MyProductCardVertical extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MyProductPrice(
-                        price: '120',
+                        price: '1800',
                       ),
                       SizedBox(width: TSizes.xs),
                       Container(

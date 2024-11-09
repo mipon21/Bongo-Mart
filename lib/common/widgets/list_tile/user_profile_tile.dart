@@ -1,8 +1,8 @@
-import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
-import 'package:bongo_mart/features/personalization/screens/profile/profile.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../images/my_circular_Image.dart';
+import '../../../features/personalization/screens/profile/profile.dart';
+import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/image_strings.dart';
+import '../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

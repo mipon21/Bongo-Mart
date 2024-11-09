@@ -10,12 +10,14 @@ import 'package:bongo_mart/features/shop/screens/product_details/widgets/product
 import 'package:bongo_mart/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:bongo_mart/features/shop/screens/reviews/product_reviews.dart';
 import 'package:bongo_mart/features/shop/screens/reviews/widgets/user_review_card.dart';
+import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -25,8 +27,22 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     final isDesktop = TDeviceUtils.isDesktop(context);
+    NavigationController navigationController = Get.put(NavigationController());
+
     return Scaffold(
       bottomNavigationBar: MyBottomAddToCart(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          navigationController.selectedIndex.value = 2;
+          Get.to(() => NavigationMenu());
+        },
+        shape: CircleBorder(),
+        backgroundColor: isDark ? TColors.secondary : TColors.primary,
+        child: Icon(
+          Iconsax.shopping_cart,
+          color: Colors.white,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -37,8 +53,8 @@ class ProductDetails extends StatelessWidget {
 
             Padding(
               padding: EdgeInsets.only(
-                left: TSizes.defaultSpace/1.5,
-                right: TSizes.defaultSpace/1.5,
+                left: TSizes.defaultSpace / 1.5,
+                right: TSizes.defaultSpace / 1.5,
                 bottom: TSizes.defaultSpace,
               ),
               child: Column(
@@ -59,9 +75,11 @@ class ProductDetails extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: isDark ? TColors.primary : TColors.primary,
+                        backgroundColor:
+                            isDark ? TColors.primary : TColors.primary,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(TSizes.cardRadiusMd),
+                          borderRadius:
+                              BorderRadius.circular(TSizes.cardRadiusMd),
                         ),
                       ),
                       onPressed: () {},
@@ -96,21 +114,29 @@ class ProductDetails extends StatelessWidget {
                   /// -----  review -----
                   Divider(),
                   SizedBox(height: TSizes.spaceBtwItems),
-                  MySectionHeading(title: 'Reviews(199)', showViewAll: true, onPressed: () => Get.to(ProductReviews()),),
+                  MySectionHeading(
+                    title: 'Reviews(199)',
+                    showViewAll: true,
+                    onPressed: () => Get.to(ProductReviews()),
+                  ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   UserReviewCard(),
                   UserReviewCard(),
                   SizedBox(height: TSizes.spaceBtwItems),
-                  MySectionHeading(title: 'More Releted Products',),
+                  MySectionHeading(
+                    title: 'More Releted Products',
+                  ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   MyGridLayout(
                     itemCount: 4,
                     crossAxisCount: isDesktop ? 6 : 2,
                     itemBuilder: (_, index) => MyProductCardVertical(),
                   ),
-                  
                 ],
               ),
+            ),
+            SizedBox(
+              height: TSizes.spaceBtwSections * 2,
             ),
           ],
         ),

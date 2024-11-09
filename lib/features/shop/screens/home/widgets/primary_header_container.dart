@@ -1,8 +1,8 @@
-import 'package:bongo_mart/common/widgets/curved_edges/curved_edges_widget.dart';
-import 'package:bongo_mart/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import '../../../../../common/widgets/curved_edges/curved_edges_widget.dart';
+import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class MyPrimaryHeaderContainer extends StatelessWidget {
