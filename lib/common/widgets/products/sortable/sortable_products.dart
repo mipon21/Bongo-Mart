@@ -1,7 +1,7 @@
 
-import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
-import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:bongo_mart/utils/constants/sizes.dart';
+import '../../layout/grid_layout.dart';
+import '../product_cards/product_card_vertical.dart';
+import '../../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

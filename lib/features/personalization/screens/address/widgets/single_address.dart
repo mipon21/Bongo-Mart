@@ -79,7 +79,7 @@ class MySingleAddress extends StatelessWidget {
                   Expanded(
                     child: Text(
                       '40/14 Jalalabad R/A, Sylhet Sadar, Sylhet, Postal Code: 3100',
-                      maxLines: 2,
+                      maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: isSelectedAddress
                           ? Theme.of(context).textTheme.titleSmall

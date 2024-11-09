@@ -1,5 +1,5 @@
 
-import 'package:bongo_mart/features/shop/screens/sub_category/sub_category.dart';
+import 'features/shop/screens/sub_category/sub_category.dart';
 
 import 'navigation_menu.dart';
 import 'utils/constants/text_strings.dart';

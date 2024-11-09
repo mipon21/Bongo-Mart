@@ -3,10 +3,13 @@
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/images/my_rounded_image.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_horizontal.dart';
+import 'package:bongo_mart/common/widgets/products/sortable/sortable_products.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/screens/all_products/all_products.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SubCategoryScreen extends StatelessWidget {
   const SubCategoryScreen({super.key});
@@ -37,21 +40,26 @@ class SubCategoryScreen extends StatelessWidget {
                 MySectionHeading(
                   title: 'Sub Categories',
                   showViewAll: true,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(AllProducts());
+                  },
                 ),
               ],
             ),
             SizedBox(height: TSizes.spaceBtwItems / 2),
             SizedBox(
-              height: 125,
+              height: 145,
               child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(width: TSizes.spaceBtwItems),
+                separatorBuilder: (context, index) =>
+                    SizedBox(width: TSizes.spaceBtwItems),
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 shrinkWrap: true,
                 itemBuilder: (context, index) => MyProductCardHorizontal(),
               ),
             ),
+            SizedBox(height: TSizes.defaultSpace,),
+            MySortableProducts()
           ],
         ),
       ),

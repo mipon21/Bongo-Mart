@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "438367487483",
+    "project_id": "mm-player-af72f",
+    "storage_bucket": "mm-player-af72f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438367487483:android:d93f0bc8e75e3c4b2db75e",
+        "android_client_info": {
+          "package_name": "com.example.mmplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438367487483-njdab9a7off1f2bdao2nhde9nt787h02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA08qyAq5PIJNnXYkFmG_Tt03WFR6uRcvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438367487483-njdab9a7off1f2bdao2nhde9nt787h02.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "438367487483-b3ul025v9ttto0riascvku20bgiqtqej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bongomart.bongoMart"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438367487483:android:30106af7c9e8d95f2db75e",
+        "android_client_info": {
+          "package_name": "com.mrf.bongo_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438367487483-njdab9a7off1f2bdao2nhde9nt787h02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA08qyAq5PIJNnXYkFmG_Tt03WFR6uRcvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438367487483-njdab9a7off1f2bdao2nhde9nt787h02.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "438367487483-b3ul025v9ttto0riascvku20bgiqtqej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bongomart.bongoMart"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

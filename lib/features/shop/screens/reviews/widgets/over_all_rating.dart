@@ -1,6 +1,7 @@
 
-import 'rating_progress_indicator.dart';
 import 'package:flutter/material.dart';
+
+import 'rating_progress_indicator.dart';
 
 class MyOverAllRating extends StatelessWidget {
   const MyOverAllRating({

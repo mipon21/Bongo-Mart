@@ -1,4 +1,4 @@
-import 'package:bongo_mart/features/shop/screens/sub_category/sub_category.dart';
+import '../../sub_category/sub_category.dart';
 import 'package:get/get.dart';
 
 import '../../../../../common/widgets/vertical_image_text/vertical_image_text.dart';

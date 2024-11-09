@@ -2,9 +2,6 @@
 
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
-import 'package:bongo_mart/common/widgets/products/cart/add_remove_btn.dart';
-import 'package:bongo_mart/common/widgets/products/cart/cart_item.dart';
-import 'package:bongo_mart/common/widgets/text/product_price.dart';
 import 'package:bongo_mart/features/shop/screens/cart/cart_items.dart';
 import 'package:bongo_mart/features/shop/screens/checkout/checkout.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
@@ -42,17 +39,12 @@ class CartScreen extends StatelessWidget {
           child: MyCartItems(),
         ),
       ),
-      bottomNavigationBar: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(5),
-              topRight: Radius.circular(5),
-            ),
-          ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: TSizes.md, right: TSizes.md),
+        child: ElevatedButton(
+          onPressed: () => Get.to(() => CheckoutScreen()),
+          child: Text('Checkout ৳ 1000'),
         ),
-        onPressed: () => Get.to(() => CheckoutScreen()),
-        child: Text('Checkout ৳ 1000'),
       ),
     );
   }

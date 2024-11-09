@@ -27,7 +27,6 @@ class MyProductCardHorizontal extends StatelessWidget {
       onTap: () => Get.to(() => ProductDetails()),
       child: Container(
         width: 310,
-        height: 125,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
@@ -36,9 +35,7 @@ class MyProductCardHorizontal extends StatelessWidget {
         child: Row(
           children: [
             //Thumbnail, wishlist icon, discount label
-
             MyRoundedContainer(
-              height: 120,
               padding: EdgeInsets.all(TSizes.sm),
               //showBorder: true,
               backgroundColor:
@@ -89,10 +86,12 @@ class MyProductCardHorizontal extends StatelessWidget {
                         MyProductTitle(
                           title: 'Nike Air Max 90 ',
                           maxLines: 1,
+                          smallSize: true,
                         ),
                         MyBrandTitleWithVerifiedIcon(
                           title: 'Nike',
                           brandTitleSize: TextSizes.small,
+
                         ),
                       ],
                     ),
@@ -114,11 +113,9 @@ class MyProductCardHorizontal extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Flexible(
-                          child: MyProductPrice(
-                            price: '1800',
-                            isLarge: true,
-                          ),
+                        MyProductPrice(
+                          price: '1800',
+                          isLarge: true,
                         ),
                         Container(
                           decoration: BoxDecoration(

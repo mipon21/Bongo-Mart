@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:bongo_mart/common/style/rounded_container.dart';
+import 'package:bongo_mart/common/widgets/images/my_rounded_image.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
+import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +41,9 @@ class MyOrderListItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Processing....',
+                          'Aircone Nike Shoe',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.bodyLarge!.apply(
                                 color: TColors.primary,
                                 fontWeightDelta: 1,
@@ -50,12 +54,36 @@ class MyOrderListItem extends StatelessWidget {
                       ],
                     ),
                   ),
+                  MyRoundedImage(
+                      width: 50, height: 50, imageUrl: TImages.productImage1),
                   IconButton(
                       onPressed: () {}, icon: Icon(Iconsax.arrow_right_3))
                 ],
               ),
               SizedBox(height: TSizes.spaceBtwItems),
               //Row 2
+              Row(
+                children: [
+                  Icon(Iconsax.calendar),
+                  SizedBox(width: TSizes.spaceBtwItems / 2),
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Shipping Date:',
+                          style: Theme.of(context).textTheme.labelMedium,
+                        ),
+                        Text('14 Nov - 16 Nov, 2024',
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.headlineSmall!),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
               Row(
                 children: [
                   Expanded(
@@ -87,7 +115,7 @@ class MyOrderListItem extends StatelessWidget {
                   Expanded(
                     child: Row(
                       children: [
-                        Icon(Iconsax.calendar),
+                        Icon(Iconsax.status),
                         SizedBox(width: TSizes.spaceBtwItems / 2),
                         Expanded(
                           child: Column(
@@ -95,13 +123,19 @@ class MyOrderListItem extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Shipping Date:',
+                                'Status:',
                                 style: Theme.of(context).textTheme.labelMedium,
                               ),
-                              Text('14 Nov 2024 - 16 Nov 2024',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall!),
+                              Text(
+                                'Processing...',
+                                maxLines: 1,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .apply(
+                                      color: Colors.green,
+                                    ),
+                              ),
                             ],
                           ),
                         ),

@@ -16,10 +16,11 @@ class MyBottomAddToCart extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 8, vertical: TSizes.defaultSpace / 4),
+      margin: const EdgeInsets.symmetric(
+          horizontal: 16, vertical: TSizes.defaultSpace / 4),
+      padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),    
       decoration: BoxDecoration(
-        color: isDark ? TColors.darkerGrey : TColors.light,
+        color: isDark ? Colors.transparent : TColors.light,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(8),
           topRight: Radius.circular(8),
