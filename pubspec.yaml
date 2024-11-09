@@ -71,6 +71,9 @@ flutter:
     - assets/icons/payment_methods/
     - assets/images/on_boarding_images/
     - assets/animation/
+    - assets/icons/payment_methods/bkash.png
+    - assets/icons/payment_methods/nagad.png
+
 
   #--------------- LOCAL FONTS ------------------#
   fonts:

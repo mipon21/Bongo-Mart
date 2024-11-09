@@ -1,6 +1,5 @@
 import 'package:bongo_mart/common/style/spacing_style.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class SuccessScreen extends StatelessWidget {
       required this.onPressed});
 
   final String image, title, subtitle, buttonText;
-  final VoidCallback onPressed;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +51,7 @@ class SuccessScreen extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: onPressed, child: const Text(TTexts.tContinue))),
+                    onPressed: onPressed, child: Text(buttonText))),
           ],
         ),
       )),

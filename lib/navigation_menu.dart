@@ -1,4 +1,3 @@
-
 import 'package:bongo_mart/features/personalization/screens/settings/settings.dart';
 import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
 import 'package:bongo_mart/features/shop/screens/favourite/favourite_screen.dart';
@@ -17,15 +16,16 @@ class NavigationMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     final isDark = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-          currentIndex: controller._selectedIndex.value,
+          currentIndex: controller.selectedIndex.value,
           onTap: (int index) {
-            controller._selectedIndex.value = index;
+            controller.selectedIndex.value = index;
           },
           backgroundColor: isDark ? TColors.dark : TColors.white,
-          selectedItemColor: isDark ? TColors.secondary : TColors.primary, // Adjust as necessary
+          selectedItemColor: isDark ? TColors.secondary : TColors.primary,
           unselectedItemColor: isDark ? Colors.white70 : Colors.black54,
           items: [
             _buildBottomNavigationBarItem(Iconsax.home, "Home"),
@@ -36,7 +36,7 @@ class NavigationMenu extends StatelessWidget {
           ],
         ),
       ),
-      body: Obx(() => controller.screenList[controller._selectedIndex.value]),
+      body: Obx(() => controller.screenList[controller.selectedIndex.value]),
     );
   }
 
@@ -49,7 +49,7 @@ class NavigationMenu extends StatelessWidget {
 
   Widget _buildAnimatedIcon(IconData icon) {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300), // Adjust the duration as necessary
+      duration: const Duration(milliseconds: 300),
       transitionBuilder: (Widget child, Animation<double> animation) {
         const offset = 0.1;
         final tween = Tween<Offset>(begin: const Offset(0, offset), end: Offset.zero);
@@ -61,19 +61,18 @@ class NavigationMenu extends StatelessWidget {
       },
       child: Icon(
         icon,
-        key: ValueKey<IconData>(icon), // Key to differentiate icons
+        key: ValueKey<IconData>(icon), // Unique key for animation
       ),
     );
   }
 
   String _buildEllipsizedLabel(String label) {
-    // Return the label string for the BottomNavigationBarItem
     return label.length > 8 ? '${label.substring(0, 8)}...' : label;
   }
 }
 
 class NavigationController extends GetxController {
-  final Rx<int> _selectedIndex = 0.obs;
+  final Rx<int> selectedIndex = 0.obs;
 
   final screenList = [
     const HomeScreen(),

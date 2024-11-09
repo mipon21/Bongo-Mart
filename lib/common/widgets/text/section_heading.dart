@@ -35,7 +35,7 @@ class MySectionHeading extends StatelessWidget {
                 buttonTitle,
                 style: Theme.of(context)
                     .textTheme
-                    .labelLarge!
+                    .bodySmall!
                     .apply(color: titleColor),
               ))
       ],

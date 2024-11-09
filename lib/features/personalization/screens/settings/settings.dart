@@ -6,7 +6,10 @@ import 'package:bongo_mart/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:bongo_mart/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
 import 'package:bongo_mart/features/authentication/screens/login/login.dart';
+import 'package:bongo_mart/features/personalization/screens/address/addresses.dart';
+import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
+import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
@@ -19,6 +22,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NavigationController navigationController = Get.put(NavigationController());
     final isDark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
@@ -61,13 +65,13 @@ class SettingsScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   MySettingsMenuTile(
-                    onTap: () {},
+                    onTap: () => Get.to(() => const UserAddressesScreen()),
                     icon: Iconsax.safe_home,
                     title: 'My Addresses',
                     subtitle: 'Set Shopping Delivery Address',
                   ),
                   MySettingsMenuTile(
-                    onTap: () {},
+                    onTap: () => navigationController.selectedIndex.value = 2,
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subtitle: 'Add or remove products and move to checkout',

@@ -32,7 +32,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left, color: isDark ? TColors.white : TColors.black,))
+                onPressed: () => Get.back(), icon: Icon(Icons.arrow_back_ios_new, color: isDark ? TColors.white : TColors.black,))
             : leadingIcon != null
                 ? IconButton(
                     onPressed: leadingOnPressed, icon: Icon(leadingIcon, color: isDark ? TColors.white : TColors.black,))
