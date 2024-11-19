@@ -8,19 +8,18 @@ import 'package:flutter/material.dart';
 class MyCoiceChip extends StatelessWidget {
   const MyCoiceChip({
     super.key,
-    required this.isDark,
     required this.title,
     required this.isSelected,
     this.onSelected,
   });
 
-  final bool isDark;
   final String title;
   final bool isSelected;
   final Function(bool)? onSelected;
 
   @override
   Widget build(BuildContext context) {
+    final isDark = THelperFunctions.isDarkMode(context);
     return ChoiceChip(
       label: THelperFunctions.getColor(title) != null ? SizedBox() : Text(title),
       selectedColor: THelperFunctions.getColor(title)!=null ? THelperFunctions.getColor(title) : null,

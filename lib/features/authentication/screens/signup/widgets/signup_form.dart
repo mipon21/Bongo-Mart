@@ -1,11 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable
 
-import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
-import 'package:bongo_mart/features/authentication/screens/signup/vertify_email.dart';
+import 'package:bongo_mart/features/authentication/controller/signup/signup_controller.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import 'package:bongo_mart/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -18,13 +18,21 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
+    final controller = Get.put(SignUpController());
     return Form(
+      key: controller.signUpFormKey,
       child: Column(
         children: [
           Row(
             children: [
               Expanded(
+                // First Name
                 child: TextFormField(
+                  controller: controller.firstName,
+                  validator: (value) {
+                    return TValidator.validateEmptyTextField(
+                        value, TTexts.firstName);
+                  },
                   expands: false,
                   decoration: InputDecoration(
                     labelText: TTexts.firstName,
@@ -36,7 +44,13 @@ class SignUpForm extends StatelessWidget {
                 width: TSizes.spaceBtwInputFields,
               ),
               Expanded(
+                // Last Name
                 child: TextFormField(
+                  controller: controller.lastName,
+                  validator: (value) {
+                    return TValidator.validateEmptyTextField(
+                        value, TTexts.lastName);
+                  },
                   expands: false,
                   decoration: InputDecoration(
                     labelText: TTexts.lastName,
@@ -49,7 +63,12 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
+          // Username
           TextFormField(
+            controller: controller.username,
+            validator: (value) {
+              return TValidator.validateEmptyTextField(value, TTexts.username);
+            },
             expands: false,
             decoration: InputDecoration(
               labelText: TTexts.username,
@@ -59,7 +78,39 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
+          Obx(() => DropdownButtonFormField<String>(
+                value: controller.gender.value.isEmpty
+                    ? null
+                    : controller.gender.value,
+                onChanged: (value) {
+                  controller.gender.value = value ?? '';
+                },
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Iconsax.man),
+                  hintText: 'Select Gender',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(TSizes.md),
+                  ),
+                ),
+                items: ['Male', 'Female', 'Prefer not to say']
+                    .map(
+                      (String value) => DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      ),
+                    )
+                    .toList(),
+              )),
+
+          SizedBox(
+            height: TSizes.spaceBtwInputFields,
+          ),
+          // Email
           TextFormField(
+            controller: controller.email,
+            validator: (value) {
+              return TValidator.validateEmail(value);
+            },
             expands: false,
             decoration: InputDecoration(
               labelText: TTexts.email,
@@ -69,7 +120,12 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
+          // Phone Number
           TextFormField(
+            controller: controller.phoneNumber,
+            validator: (value) {
+              return TValidator.validatePhoneNumber(value);
+            },
             expands: false,
             decoration: InputDecoration(
               labelText: TTexts.phoneNo,
@@ -79,23 +135,46 @@ class SignUpForm extends StatelessWidget {
           SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-          TextFormField(
-            expands: false,
-            decoration: InputDecoration(
-              labelText: TTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
+          // Password
+          Obx(
+            () => TextFormField(
+              controller: controller.password,
+              validator: (value) {
+                return TValidator.validatePassword(value);
+              },
+              expands: false,
+              obscureText: controller.hidePassword.value,
+              decoration: InputDecoration(
+                labelText: TTexts.password,
+                prefixIcon: Icon(Iconsax.password_check),
+                suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value =
+                      !controller.hidePassword.value,
+                  icon: controller.hidePassword.value
+                      ? Icon(Iconsax.eye_slash)
+                      : Icon(Iconsax.eye),
+                ),
+              ),
             ),
           ),
           SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
+          // Privacy Policy and Terms of Service
           Row(
             children: [
-              SizedBox(
-                width: 24,
-                height: 24,
-                child: Checkbox(value: true, onChanged: (value) {}),
+              Obx(
+                () => SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: Checkbox(
+                    value: controller.privacyChecked.value,
+                    onChanged: (value) {
+                      controller.privacyChecked.value =
+                          !controller.privacyChecked.value;
+                    },
+                  ),
+                ),
               ),
               SizedBox(width: 5),
               Expanded(
@@ -167,13 +246,12 @@ class SignUpForm extends StatelessWidget {
             height: TSizes.spaceBtwInputFields,
           ),
           SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  child: Text(TTexts.createAccount),
-                  onPressed: () {
-                    Get.to(VertifyEmailScreen());
-                    successMessage(context, "Account is awaiting verification");
-                  })),
+            width: double.infinity,
+            child: ElevatedButton(
+              child: Text(TTexts.createAccount),
+              onPressed: () => controller.signup(),
+            ),
+          ),
         ],
       ),
     );

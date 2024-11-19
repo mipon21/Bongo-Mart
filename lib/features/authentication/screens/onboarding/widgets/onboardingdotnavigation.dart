@@ -1,4 +1,4 @@
-import '../../../controllers%20onbording/onboarding_controller.dart';
+import '../../../controller/controllers onbording/onboarding_controller.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/device/device_utility.dart';

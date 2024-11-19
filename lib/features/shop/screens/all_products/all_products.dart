@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
-import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
-import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/products/sortable/sortable_products.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class AllProducts extends StatelessWidget {
   const AllProducts({super.key});

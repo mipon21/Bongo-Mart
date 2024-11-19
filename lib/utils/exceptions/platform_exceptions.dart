@@ -6,6 +6,8 @@ class TPlatformException implements Exception {
 
   String get message {
     switch (code) {
+      case 'The supplied auth credential is incorrect, malformed or has expired':
+        return 'The email address is already registered. Please use a different email.';
       case 'INVALID_LOGIN_CREDENTIALS':
         return 'Invalid login credentials. Please double-check your information.';
       case 'too-many-requests':

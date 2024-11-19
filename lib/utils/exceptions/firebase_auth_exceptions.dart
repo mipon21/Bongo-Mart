@@ -9,6 +9,7 @@ class TFirebaseAuthException implements Exception {
   /// Get the corresponding error message based on the error code.
   String get message {
     switch (code) {
+      
       case 'email-already-in-use':
         return 'The email address is already registered. Please use a different email.';
       case 'invalid-email':
@@ -52,7 +53,7 @@ class TFirebaseAuthException implements Exception {
       case 'user-not-found':
         return 'No user found for the given email or UID.';
       case 'invalid-credential':
-        return 'The supplied credential is malformed or has expired.';
+        return 'The Email or Password is incorrect.';
       case 'wrong-password':
         return 'The password is invalid. Please check your password and try again.';
       case 'user-token-revoked':

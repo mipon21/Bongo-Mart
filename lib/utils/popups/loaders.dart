@@ -28,47 +28,50 @@ class TLoaders {
   }
 
   static successSnackBar({required title, message = '', duration = 3}) {
+    final isDark = THelperFunctions.isDarkMode(Get.context!);
     Get.snackbar(
       title,
       message,
       isDismissible: true,
       shouldIconPulse: true,
-      colorText: Colors.white,
-      backgroundColor: TColors.primary,
-      snackPosition: SnackPosition.BOTTOM,
+      colorText: isDark ? Colors.white : const Color.fromARGB(255, 21, 158, 25),
+      backgroundColor: Colors.green.withOpacity(0.3),
+      snackPosition: SnackPosition.TOP,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),
-      icon: const Icon(Iconsax.check, color: TColors.white),
+      icon: Icon(Iconsax.check, color: isDark ? Colors.white : Colors.green),
     );
   }
 
   static warningSnackBar({required title, message = ''}) {
+    final isDark = THelperFunctions.isDarkMode(Get.context!);
     Get.snackbar(
       title,
       message,
       isDismissible: true,
       shouldIconPulse: true,
-      colorText: TColors.white,
-      backgroundColor: Colors.orange,
+      colorText: isDark ? Colors.white : Colors.orange,
+      backgroundColor: Colors.orange.withOpacity(0.3),
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),
-      icon: const Icon(Iconsax.warning_2, color: TColors.white),
+      icon: Icon(Iconsax.warning_2, color: isDark ? Colors.white : Colors.orange),
     );
   }
 
   static errorSnackBar({required title, message = ''}) {
+    final isDark = THelperFunctions.isDarkMode(Get.context!);
     Get.snackbar(
       title,
       message,
       isDismissible: true,
       shouldIconPulse: true,
-      colorText: TColors.white,
-      backgroundColor: Colors.red.shade600,
+      colorText: isDark ? Colors.white : Colors.red,
+      backgroundColor: Colors.red.withOpacity(0.3),
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),
-      icon: const Icon(Iconsax.warning_2, color: TColors.white),
+      icon: Icon(Iconsax.warning_2, color: isDark ? Colors.white : Colors.red),
     );
   }
 }

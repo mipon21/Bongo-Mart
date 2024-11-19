@@ -8,16 +8,18 @@ import 'package:iconsax/iconsax.dart';
 
 class MyRatingBarIndicatorUni extends StatelessWidget {
   const MyRatingBarIndicatorUni({
-    super.key, required this.rating, this.itemSize = 10,
+    super.key, required this.rating, this.itemSize = 10, this.itemCount = 5,
   });
   final double rating;
   final double itemSize;
+  final int? itemCount;
 
   @override
   Widget build(BuildContext context) {
     return RatingBarIndicator(
       rating: rating,
       itemSize: itemSize,
+      itemCount: itemCount ?? 5,
       unratedColor: TColors.grey,
       itemBuilder: (_, __) => Icon(
         Iconsax.star5,

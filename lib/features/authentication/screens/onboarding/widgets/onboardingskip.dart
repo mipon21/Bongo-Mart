@@ -1,5 +1,7 @@
 
-import '../../../controllers%20onbording/onboarding_controller.dart';
+import '../../login/login.dart';
+import 'package:get/get.dart';
+
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/device/device_utility.dart';
@@ -18,7 +20,8 @@ class OnBoardingSkip extends StatelessWidget {
       child: TextButton(
         child: const Text(TTexts.skip),
         onPressed: (){
-          OnBoardingController.find.skipPage();
+          // ignore: prefer_const_constructors
+          Get.offAll(LoginScreen());
         },
       )
     );

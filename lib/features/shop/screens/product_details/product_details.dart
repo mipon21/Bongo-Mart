@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/controllers/product/product_controller.dart';
+import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/features/shop/screens/product_details/widgets/bottom_cart.dart';
 import 'package:bongo_mart/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:bongo_mart/features/shop/screens/product_details/widgets/product_image_slider.dart';
@@ -13,7 +15,7 @@ import 'package:bongo_mart/features/shop/screens/reviews/widgets/user_review_car
 import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
+import 'package:bongo_mart/utils/enum/enums.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,13 +23,15 @@ import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+  const ProductDetails({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
-    final isDesktop = TDeviceUtils.isDesktop(context);
     NavigationController navigationController = Get.put(NavigationController());
+    final controller = ProductController.instance;
 
     return Scaffold(
       bottomNavigationBar: MyBottomAddToCart(),
@@ -47,7 +51,7 @@ class ProductDetails extends StatelessWidget {
         child: Column(
           children: [
             //-----Image Slider-----
-            MyProductImageSlider(isDark: isDark),
+            MyProductImageSlider(product: product),
 
             //-----Product Details-----
 
@@ -61,38 +65,23 @@ class ProductDetails extends StatelessWidget {
                 children: [
                   //----- Rating Share Widget -----
 
-                  MyRatingStars(),
+                  MyRatingStars(product: product),
 
                   //----- Price, title, stock & brand -----
 
-                  MyProductMetaData(),
+                  MyProductMetaData(product: product),
 
                   //----- attributes -----
-                  MyProductAttributes(),
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  //----- Checkout Button -----
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            isDark ? TColors.primary : TColors.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(TSizes.cardRadiusMd),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text('Buy Now'),
-                    ),
-                  ),
+                  if (product.productType == ProductType.variable.toString())
+                  MyProductAttributes(product: product),
+                  if (product.productType == ProductType.variable.toString())
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   /// Description
                   MySectionHeading(title: 'Description'),
                   SizedBox(height: TSizes.spaceBtwItems),
                   ReadMoreText(
-                    'Lorem ipsum dolor sit amet consectetur. Justo faucibus cursus integer at suspendisse. Neque aliquam vestibulum turpis in habitant platea aenean. Neque aliquam vestibulum turpis in habitant platea aenean.',
+                    product.description ?? '',
                     style: Theme.of(context).textTheme.bodyMedium,
                     trimLines: 2,
                     trimMode: TrimMode.Line,
@@ -108,6 +97,23 @@ class ProductDetails extends StatelessWidget {
                         color: THelperFunctions.isDarkMode(context)
                             ? TColors.secondary
                             : TColors.primary),
+                  ),
+                  SizedBox(height: TSizes.spaceBtwSections),
+                  //----- Buy Now Button -----
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            isDark ? TColors.primary : TColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(TSizes.cardRadiusMd),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text('Buy Now'),
+                    ),
                   ),
                   SizedBox(height: TSizes.spaceBtwItems),
 
@@ -128,10 +134,11 @@ class ProductDetails extends StatelessWidget {
                   ),
                   SizedBox(height: TSizes.spaceBtwItems),
                   MyGridLayout(
-                    itemCount: 4,
-                    crossAxisCount: isDesktop ? 6 : 2,
-                    itemBuilder: (_, index) => MyProductCardVertical(),
-                  ),
+                    itemCount: 10,
+                    itemBuilder: (_, index) => MyProductCardVertical(
+                      product: ProductModel.empty(),
+                    ),
+                  )
                 ],
               ),
             ),

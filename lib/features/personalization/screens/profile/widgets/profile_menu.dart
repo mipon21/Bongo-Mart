@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-
 import '../../../../../utils/constants/sizes.dart';
 
 class MyProfileMenu extends StatelessWidget {
   const MyProfileMenu({
     super.key,
-    this.icon = Iconsax.arrow_right_34,
-    required this.onPressed,
+    this.icon,
+    this.onPressed,
     required this.title,
     required this.value,
   });
 
-  final IconData icon;
-  final VoidCallback onPressed;
+  final IconData? icon;
+  final VoidCallback? onPressed;
   final String title, value;
 
   @override

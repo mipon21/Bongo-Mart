@@ -1,4 +1,7 @@
 
+import 'package:bongo_mart/features/shop/models/category_model.dart';
+import 'package:bongo_mart/features/shop/models/product_model.dart';
+
 import '../../layout/grid_layout.dart';
 import '../product_cards/product_card_vertical.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -9,7 +12,6 @@ class MySortableProducts extends StatelessWidget {
   const MySortableProducts({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +19,7 @@ class MySortableProducts extends StatelessWidget {
         DropdownButtonFormField<String>(
           onChanged: (value) {},
           decoration: InputDecoration(
-            prefixIcon: Icon(Iconsax.category),
+            prefixIcon: const Icon(Iconsax.category),
             hintText: '',
             hintStyle: TextStyle(
               fontSize: 12,
@@ -46,10 +48,12 @@ class MySortableProducts extends StatelessWidget {
                   ))
               .toList(),
         ),
-        SizedBox(height: TSizes.spaceBtwSections),
+        const SizedBox(height: TSizes.spaceBtwSections),
         MyGridLayout(
           itemCount: 10,
-          itemBuilder: (_, index) => MyProductCardVertical(),
+          itemBuilder: (_, index) => MyProductCardVertical(
+            product: ProductModel.empty(),
+          ),
         )
       ],
     );

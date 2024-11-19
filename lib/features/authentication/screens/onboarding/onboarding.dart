@@ -1,6 +1,6 @@
 // ignore_for_file: unused_import, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:bongo_mart/features/authentication/controllers%20onbording/onboarding_controller.dart';
+import 'package:bongo_mart/features/authentication/controller/controllers%20onbording/onboarding_controller.dart';
 import 'package:bongo_mart/features/authentication/screens/onboarding/widgets/onboardingdotnavigation.dart';
 import 'package:bongo_mart/features/authentication/screens/onboarding/widgets/onboardingnextbutton.dart';
 import 'package:bongo_mart/features/authentication/screens/onboarding/widgets/onboardingpage.dart';

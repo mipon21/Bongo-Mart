@@ -12,7 +12,6 @@ import 'package:bongo_mart/utils/constants/enums.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
-import 'package:bongo_mart/utils/theme/widget_themes/shadow.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -24,7 +23,7 @@ class MyProductCardHorizontal extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() => ProductDetails()),
+      onTap: () {},
       child: Container(
         width: 310,
         padding: const EdgeInsets.all(1),

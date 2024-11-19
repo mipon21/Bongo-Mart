@@ -1,13 +1,16 @@
 
+import 'package:bongo_mart/features/shop/models/product_model.dart';
+
 import '../../../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MyRatingStars extends StatelessWidget {
   const MyRatingStars({
+    required this.product,
     super.key,
   });
-
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,10 +22,10 @@ class MyRatingStars extends StatelessWidget {
             const SizedBox(width: TSizes.spaceBtwItems / 2),
             Text.rich(TextSpan(children: [
               TextSpan(
-                  text: '4.5',
+                  text: product.rating.toString(),
                   style: Theme.of(context).textTheme.bodyLarge),
               TextSpan(
-                  text: ' (234)',
+                  text: ' (${product.ratingCount})',
                   style: Theme.of(context).textTheme.titleSmall),
             ])),
           ],

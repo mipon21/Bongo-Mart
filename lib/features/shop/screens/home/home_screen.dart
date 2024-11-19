@@ -1,10 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-
 import 'package:bongo_mart/common/widgets/custom_shapes/search_container.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:bongo_mart/common/widgets/shimmer/verticle_product_shimmer.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/controllers/product/product_controller.dart';
 import 'package:bongo_mart/features/shop/screens/all_products/all_products.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/home_categories.dart';
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = TDeviceUtils.isDesktop(context);
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 MyHomeAppBar(),
                 SizedBox(
-                  height: TSizes.spaceBtwSections,
+                  height: TSizes.spaceBtwSections / 2,
                 ),
                 //SearchBar
                 MySearchContainer(
@@ -41,20 +42,18 @@ class HomeScreen extends StatelessWidget {
                   text: "Search in Store ...",
                 ),
                 SizedBox(
-                  height: TSizes.spaceBtwSections,
+                  height: TSizes.spaceBtwSections / 2,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
                     left: TSizes.defaultSpace,
+                    bottom: TSizes.spaceBtwSections / 4,
                   ),
                   child: Column(
                     children: [
                       MySectionHeading(
                         title: 'Popular Categories',
                         titleColor: TColors.white,
-                      ),
-                      SizedBox(
-                        height: TSizes.spaceBtwItems,
                       ),
                       MyHomeCategories(),
                     ],
@@ -63,19 +62,14 @@ class HomeScreen extends StatelessWidget {
               ],
             )),
             Padding(
-              padding: const EdgeInsets.all(TSizes.defaultSpace/2),
+              padding: const EdgeInsets.all(TSizes.defaultSpace / 2),
               child: Column(
                 children: [
                   MyPromoSlider(
                     autoPlay: true,
-                    promoImages: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3,
-                    ],
                   ),
-                   SizedBox(
-                    height: TSizes.spaceBtwSections/2,
+                  SizedBox(
+                    height: TSizes.spaceBtwSections / 2,
                   ),
                   MySectionHeading(
                     title: 'Popular Products',
@@ -86,15 +80,25 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   SizedBox(
-                    height: TSizes.spaceBtwSections/2,
+                    height: TSizes.spaceBtwSections / 2,
                   ),
                   //--Popular Products--//
 
-                  MyGridLayout(
-                    itemCount: 10,
-                    crossAxisCount: isDesktop ? 6 : 2,
-                    itemBuilder: (_, index) => MyProductCardVertical(),
-                  )
+                  Obx(() {
+                    if (controller.isLoading.value) {
+                      return MyVerticalProductShimmer(
+                          itemCount: controller.products.length);
+                    }
+                    if (controller.products.isEmpty) {
+                      return const Center(child: Text("No products found"));
+                    }
+                    return MyGridLayout(
+                      itemCount: controller.products.length,
+                      crossAxisCount: 2,
+                      itemBuilder: (_, index) => MyProductCardVertical(
+                          product: controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               ),
             )

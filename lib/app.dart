@@ -1,7 +1,12 @@
 
-import 'features/shop/screens/sub_category/sub_category.dart';
+// ignore_for_file: prefer_const_constructors
 
-import 'navigation_menu.dart';
+import 'package:bongo_mart/bindings/general_bindings.dart';
+import 'package:bongo_mart/routes/app_routes.dart';
+import 'package:bongo_mart/utils/constants/colors.dart';
+import 'package:bongo_mart/utils/constants/image_strings.dart';
+import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import 'package:lottie/lottie.dart';
 import 'utils/constants/text_strings.dart';
 import 'utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +17,24 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = THelperFunctions.isDarkMode(context);
     return GetMaterialApp(
       title: TTexts.appName,
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      // initialBinding: GeneralBindings(),
-      home: const NavigationMenu()
+      getPages: AppRoutes.pages,
+      initialBinding: GeneralBindings(),
+      home: Scaffold(
+        backgroundColor: isDarkMode ? TColors.secondary : TColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: Colors.white,
+            backgroundColor: isDarkMode ? TColors.secondary : TColors.primary,
+          ),
+        ),
+      )
     );
   }
 }

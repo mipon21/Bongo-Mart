@@ -3,7 +3,6 @@
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
-import 'package:bongo_mart/features/shop/screens/all_products/all_products.dart';
 import 'package:bongo_mart/features/shop/screens/brand/brand_products.dart';
 import 'package:bongo_mart/features/shop/screens/store/widgets/brand_card.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';

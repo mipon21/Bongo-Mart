@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class MyProductPrice extends StatelessWidget {
   const MyProductPrice({
     super.key,
-    this.currencySign = '৳ ',
+    this.currencySign = '৳',
     required this.price,
     this.maxLines = 1,
     this.isLarge = false,
@@ -20,7 +20,7 @@ class MyProductPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      currencySign + price,
+      currencySign+price,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: isLarge

@@ -1,3 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:bongo_mart/common/widgets/shimmer/shimmer_effect.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -5,7 +10,7 @@ class MyRoundedImage extends StatelessWidget {
   const MyRoundedImage({
     super.key,
     this.height,
-    this.width ,
+    this.width,
     required this.imageUrl,
     this.fit,
     this.applyBorderRadius = false,
@@ -42,15 +47,23 @@ class MyRoundedImage extends StatelessWidget {
           color: backgroundColor,
         ),
         child: ClipRRect(
-            borderRadius: applyBorderRadius
-                ? BorderRadius.circular(borderRadius)
-                : BorderRadius.zero,
-            child: Image(
-              image: isNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider,
-              fit: fit,
-            )),
+          borderRadius: applyBorderRadius
+              ? BorderRadius.circular(borderRadius)
+              : BorderRadius.zero,
+          child: isNetworkImage
+              ? CachedNetworkImage(
+                  fit: fit,
+                  imageUrl: imageUrl,
+                  progressIndicatorBuilder: (context, url, progress) => Center(
+                      child: MyShimmerEffect(
+                          width: width, height: height, radius: borderRadius)),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                )
+              : Image(
+                  fit: fit,
+                  image: AssetImage(imageUrl),
+                ),
+        ),
       ),
     );
   }

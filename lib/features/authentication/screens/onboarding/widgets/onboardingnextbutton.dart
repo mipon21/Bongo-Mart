@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/constants/sizes.dart';
-import '../../../controllers%20onbording/onboarding_controller.dart';
+import '../../../controller/controllers onbording/onboarding_controller.dart';
 
 class OnBoardingNextButton extends StatelessWidget {
   const OnBoardingNextButton({

@@ -1,13 +1,15 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
 import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:bongo_mart/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
-import 'package:bongo_mart/features/authentication/screens/login/login.dart';
+import 'package:bongo_mart/data/repositories/authentication/auth_repo.dart';
+import 'package:bongo_mart/features/personalization/controller/theme_controller.dart';
+import 'package:bongo_mart/features/personalization/controller/user_controller.dart';
 import 'package:bongo_mart/features/personalization/screens/address/addresses.dart';
-import 'package:bongo_mart/features/shop/screens/cart/cart_screen.dart';
+import 'package:bongo_mart/features/personalization/screens/settings/widgets/load_data/load_data.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
 import 'package:bongo_mart/features/shop/screens/order/order.dart';
 import 'package:bongo_mart/navigation_menu.dart';
@@ -24,7 +26,9 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     NavigationController navigationController = Get.put(NavigationController());
+    final controller = UserController.instance;
     final isDark = THelperFunctions.isDarkMode(context);
+    final themeController = Get.put(ThemeController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -116,10 +120,22 @@ class SettingsScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   MySettingsMenuTile(
-                    onTap: () {},
+                    onTap: () => Get.to(() => const LoadDataScreen()),
                     icon: Iconsax.document_upload,
                     title: 'Load Data',
                     subtitle: 'Upload Data to Cloud Firebase',
+                  ),
+                  MySettingsMenuTile(
+                    onTap: () {},
+                    icon: Iconsax.moon,
+                    title: 'Dark Mode',
+                    subtitle: 'Enable Dark Mode',
+                    trailing: Switch(
+                      value: themeController.isDark.value,
+                      onChanged: (value) {
+                        themeController.toggleTheme();
+                      },
+                    ),
                   ),
                   MySettingsMenuTile(
                     onTap: () {},
@@ -163,14 +179,7 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () => showCustomCupertinoDialog(
-                              context: context,
-                              title: 'Logout !!!',
-                              content: 'Do You Want to Logout?',
-                              confirmText: 'Yes',
-                              cancelText: 'No',
-                              onConfirm: () => Get.to(LoginScreen()),
-                            ),
+                        onPressed: () => controller.logOutWarning(),
                         child: Text('Logout')),
                   )
                 ],

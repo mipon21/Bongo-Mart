@@ -9,7 +9,6 @@ import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_addres
 import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:bongo_mart/features/shop/screens/checkout/widgets/billing_payment_section.dart';
 import 'package:bongo_mart/features/shop/screens/order/order.dart';
-import 'package:bongo_mart/navigation_menu.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';

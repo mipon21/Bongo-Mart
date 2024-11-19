@@ -1,3 +1,7 @@
+// ignore_for_file: unused_local_variable
+import 'package:bongo_mart/features/authentication/controller/login/login_controller.dart';
+import 'package:get/get.dart';
+
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
@@ -10,6 +14,7 @@ class MySocialButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -19,7 +24,7 @@ class MySocialButtons extends StatelessWidget {
             borderRadius: BorderRadius.circular(100)
           ),
           child: IconButton(
-            onPressed: (){},
+            onPressed: () => controller.signInWithGoogle(),
             icon: const Image(
               width: TSizes.iconMd,
               height: TSizes.iconMd,

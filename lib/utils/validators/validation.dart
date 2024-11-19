@@ -1,5 +1,12 @@
-
 class TValidator {
+  static String? validateEmptyTextField(String? value, String? fieldName) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required.';
+    }
+
+    return null;
+  }
+
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required.';
@@ -48,15 +55,21 @@ class TValidator {
       return 'Phone number is required.';
     }
 
-    // Regular expression for phone number validation (assuming a 10-digit US phone number format)
-    final phoneRegExp = RegExp(r'^\d{10}$');
+    // Regular expression for Bangladeshi phone number validation (11 digits, valid prefixes)
+    final phoneRegExp = RegExp(r'^(013|014|015|016|017|018|019)\d{8}$');
 
     if (!phoneRegExp.hasMatch(value)) {
-      return 'Invalid phone number format (10 digits required).';
+      return 'Invalid phone number format. Enter 11 digits starting with a valid prefix (013, 014, 015, 016, 017, 018, 019).';
     }
 
+    // If validation passes, return null (no error message).
     return null;
   }
 
-// Add more custom validators as needed for your specific requirements.
+// Helper function to add the +88 prefix
+  String formatPhoneNumber(String phoneNumber) {
+    return '+88$phoneNumber';
+  }
+
+  // Add more custom validators as needed for your specific requirements.
 }

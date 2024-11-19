@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bongo_mart.bongo_mart"
+    namespace = "com.mrf.bongo_mart"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "25.1.8937393"
 

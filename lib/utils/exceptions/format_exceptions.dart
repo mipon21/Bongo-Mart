@@ -17,6 +17,7 @@ class TFormatException implements Exception {
   /// Create a format exception from a specific error code.
   factory TFormatException.fromCode(String code) {
     switch (code) {
+      
       case 'invalid-email-format':
         return const TFormatException('The email address format is invalid. Please enter a valid email.');
       case 'invalid-phone-number-format':

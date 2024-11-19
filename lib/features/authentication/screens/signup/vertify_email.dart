@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
-import 'package:bongo_mart/common/custom_snackbar/CustomNotification.dart';
-import 'package:bongo_mart/common/widgets/widgets_login_signup/success_screen/success_screen.dart';
-import 'package:bongo_mart/features/authentication/screens/login/login.dart';
+import 'package:bongo_mart/data/repositories/authentication/auth_repo.dart';
+import 'package:bongo_mart/features/authentication/controller/signup/verify_email_controller.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
@@ -12,19 +11,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class VertifyEmailScreen extends StatelessWidget {
-  const VertifyEmailScreen({super.key});
+  const VertifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () {
-                Get.offAll(() => LoginScreen());
-              },
-              icon: Icon(CupertinoIcons.clear)),
+            onPressed: () => AuthenticationRepository.instance.logout(),
+            icon: Icon(
+              CupertinoIcons.clear,
+            ),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -52,7 +57,7 @@ class VertifyEmailScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                "mipon5500u@gmail.com",
+                email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
@@ -68,25 +73,22 @@ class VertifyEmailScreen extends StatelessWidget {
                 height: TSizes.spaceBtwSections,
               ),
               SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: () => Get.to(() => SuccessScreen(
-                          image: TImages.staticSuccessIllustration,
-                          title: TTexts.yourAccountCreatedTitle,
-                          subtitle: TTexts.yourAccountCreatedSubTitle,
-                          buttonText: TTexts.tContinue,
-                          onPressed: () {
-                            Get.offAll(() => LoginScreen());
-                            successMessage(context, "Verified! Please Login");
-                          })),
-                      child: Text(TTexts.tContinue))),
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.checkEmailVerificationStatus(),
+                  child: Text("Continue"),
+                ),
+              ),
               SizedBox(
                 height: TSizes.spaceBtwItems,
               ), //Buttons
               SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                      onPressed: () {}, child: Text(TTexts.resendEmail))),
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () => controller.sendEmailVerification(),
+                  child: Text(TTexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),

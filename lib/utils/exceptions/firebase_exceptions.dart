@@ -9,6 +9,8 @@ class TFirebaseException implements Exception {
   /// Get the corresponding error message based on the error code.
   String get message {
     switch (code) {
+      case 'The supplied auth credential is incorrect, malformed or has expired':
+        return 'The email address is already registered. Please use a different email.';
       case 'unknown':
         return 'An unknown Firebase error occurred. Please try again.';
       case 'invalid-custom-token':
@@ -32,7 +34,7 @@ class TFirebaseException implements Exception {
       case 'operation-not-allowed':
         return 'This operation is not allowed. Contact support for assistance.';
       case 'invalid-credential':
-        return 'The supplied credential is malformed or has expired.';
+        return 'The Email or Password is incorrect.';
       case 'invalid-verification-code':
         return 'Invalid verification code. Please enter a valid code.';
       case 'invalid-verification-id':

@@ -6,7 +6,6 @@ import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AddNewAddressScreen extends StatelessWidget {
@@ -111,11 +110,11 @@ class AddNewAddressScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Add Address'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         isDark ? TColors.secondary : TColors.primary,
                   ),
+                  child: Text('Add Address'),
                 ),
               )
             ],

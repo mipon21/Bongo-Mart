@@ -1,3 +1,5 @@
+import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
+
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -8,6 +10,7 @@ class MyVerticalImageText extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
+    this.isNetworkImage = true,
     required this.textColor,
     this.onPressed,
     this.backgroundColor,
@@ -15,6 +18,7 @@ class MyVerticalImageText extends StatelessWidget {
 
   final String image;
   final String title;
+  final bool isNetworkImage;
   final Color textColor;
   final void Function()? onPressed;
   final Color? backgroundColor;
@@ -28,35 +32,24 @@ class MyVerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(
             right: TSizes.spaceBtwItems), // Adds space between items
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Circular Icon
-            Container(
-              width: 56,
+            MyCircularImage(
               height: 56,
-              padding: const EdgeInsets.all(TSizes.md),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? (isDark ? TColors.light : TColors.white),
-                borderRadius: BorderRadius.circular(100),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image), // Replace with your image asset
-                  fit: BoxFit.cover,
-                  color: isDark ? TColors.black : TColors.black,
-                ),
-              ),
+              width: 56,
+              isDark: isDark,
+              fit: BoxFit.fitWidth,
+              padding: const EdgeInsets.all(TSizes.sm*1.4),
+              imageUrl: image,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: isDark ? TColors.white : TColors.black,
+
             ),
             const SizedBox(height: 8), // Spacing between icon and text
             SizedBox(
-              width: 55,
               child: Text(
                 title, // Replace with actual category name
                 style: Theme.of(context)
