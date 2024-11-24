@@ -11,7 +11,7 @@ class ProductModel {
   String? sku;
   double price;
   String title;
-  DateTime? date;
+  DateTime? createdAt;
   double salePrice;
   String thumbnail;
   bool? isFeatured;
@@ -34,7 +34,7 @@ class ProductModel {
     this.brand,
     this.rating,
     this.ratingCount,
-    this.date,
+    this.createdAt,
     this.images,
     this.salePrice = 0.0,
     this.isFeatured,
@@ -61,6 +61,7 @@ class ProductModel {
       'IsFeatured': isFeatured,
       'CategoryId': categoryId,
       'Rating': rating,
+      'CreatedAt': createdAt,
       'RatingCount': ratingCount,
       'Brand': brand!.toJson(),
       'Description': description,
@@ -83,8 +84,8 @@ class ProductModel {
     final data = document.data()!;
     return ProductModel(
       id: document.id,
-      sku: data['SKU'],
-      title: data['Title'],
+      sku: data['SKU'] ?? '',
+      title: data['Title'] ?? '',
       stock: data['Stock'] ?? 0,
       isFeatured: data['IsFeatured'] ?? false,
       price: double.parse((data['Price'] ?? 0.0).toString()),
@@ -93,6 +94,7 @@ class ProductModel {
       categoryId: data['CategoryId'] ?? '',
       description: data['Description'] ?? '',
       rating: data['Rating'] ?? 0.0,
+      createdAt: data['CreatedAt'] ?? DateTime.now(),
       ratingCount: data['RatingCount'] ?? 0,
       productType: data['ProductType'] ?? '',
       brand: BrandModel.fromJson(data['Brand']),
@@ -111,16 +113,19 @@ class ProductModel {
     final data = document.data() as Map<String, dynamic>;
     return ProductModel(
       id: document.id,
-      title: data['Title'],
-      sku: data['SKU'],
-      brand: BrandModel.fromJson(data['Brand']),
-      description: data['Description'],
-      categoryId: data['CategoryId'],
+      sku: data['SKU'] ?? '', 
+      title: data['Title'] ?? '',
       stock: data['Stock'] ?? 0,
-      rating: data['Rating'] ?? 0.0,
-      ratingCount: data['RatingCount'] ?? 0,
+      isFeatured: data['IsFeatured'] ?? false,
       price: double.parse((data['Price'] ?? 0.0).toString()),
+      salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
       thumbnail: data['Thumbnail'] ?? '',
+      brand: BrandModel.fromJson(data['Brand']),
+      description: data['Description'] ?? '',
+      categoryId: data['CategoryId'] ?? '',  
+      rating: data['Rating'] ?? 0.0,
+      ratingCount: data['RatingCount'] ?? 0,   
+      createdAt: data['CreatedAt'] ?? DateTime.now(),
       productType: data['ProductType'] ?? '',
       images: data['Images'] != null ? List<String>.from(data['Images']) : [],
       productAttributes: (data['ProductAttributes'] as List<dynamic>)

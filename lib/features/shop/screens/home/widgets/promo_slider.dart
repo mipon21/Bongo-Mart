@@ -5,8 +5,6 @@ import 'package:bongo_mart/common/widgets/shimmer/shimmer_effect.dart';
 import 'package:bongo_mart/features/shop/controllers/banner/banner_controller.dart';
 
 import '../../../../../common/widgets/custom_shapes/containers/circular_container.dart';
-import '../../../../../common/widgets/images/my_rounded_image.dart';
-import '../../../controllers/home/home_contoller.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';

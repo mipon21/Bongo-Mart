@@ -2,12 +2,10 @@
 
 import 'package:bongo_mart/data/repositories/categories/fireabse_storage_service.dart';
 import 'package:bongo_mart/features/shop/models/category_model.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/format_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/platform_exceptions.dart';
-import 'package:bongo_mart/utils/popups/full_screen_loader.dart';
 import 'package:bongo_mart/utils/popups/loaders.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -29,12 +27,8 @@ class CategoryRepository extends GetxController {
           snapshot.docs.map((doc) => CategoryModel.fromSnapshot(doc)).toList();
 
       return list;
-    } on FirebaseAuthException catch (e) {
-      throw TFirebaseAuthException(e.code).message;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw TFormatException();
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
@@ -42,6 +36,23 @@ class CategoryRepository extends GetxController {
     }
   }
   //Get sub categories
+  Future<List<CategoryModel>> getSubCategories(String categoryId) async {
+  
+    try {
+      final snapshot = await _db.collection('Categories').where('ParentId', isEqualTo: categoryId).get();
+
+      final list =
+          snapshot.docs.map((doc) => CategoryModel.fromSnapshot(doc)).toList();
+
+      return list;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
 
   //upload Category to storage
 

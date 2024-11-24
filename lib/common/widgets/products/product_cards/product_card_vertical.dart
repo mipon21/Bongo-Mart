@@ -2,9 +2,8 @@
 
 import 'package:bongo_mart/common/style/rounded_container.dart';
 import 'package:bongo_mart/common/widgets/icons/brand_title_with_verified_icon.dart';
-import 'package:bongo_mart/common/widgets/icons/circular_icon.dart';
-import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
 import 'package:bongo_mart/common/widgets/images/my_rounded_image.dart';
+import 'package:bongo_mart/common/widgets/products/fav_icon/fav_icon.dart';
 import 'package:bongo_mart/common/widgets/shimmer/shimmer_effect.dart';
 import 'package:bongo_mart/common/widgets/text/product_price.dart';
 import 'package:bongo_mart/common/widgets/text/product_title.dart';
@@ -13,7 +12,6 @@ import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/features/shop/screens/product_details/product_details.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/enums.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/enum/enums.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
@@ -71,36 +69,35 @@ class MyProductCardVertical extends StatelessWidget {
                         isNetworkImage: true,
                         applyBorderRadius: true,
                       ),
-                    Positioned(
-                      top: 6,
-                      left: 6,
-                      child: MyRoundedContainer(
-                        radius: TSizes.sm,
-                        backgroundColor: isDark
-                            ? TColors.primary.withOpacity(0.7)
-                            : TColors.primary.withOpacity(0.8),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: TSizes.sm, vertical: TSizes.xs),
-                        child: Text(
-                          "$salePercentage% off",
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge!
-                              .apply(color: TColors.white),
+                    if (salePercentage != null)
+                      Positioned(
+                        top: 6,
+                        left: 6,
+                        child: MyRoundedContainer(
+                          radius: TSizes.sm,
+                          backgroundColor: isDark
+                              ? TColors.primary.withOpacity(0.7)
+                              : TColors.primary.withOpacity(0.8),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: TSizes.sm, vertical: TSizes.xs),
+                          child: Text(
+                            "$salePercentage% off",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .apply(color: TColors.white),
+                          ),
                         ),
                       ),
-                    ),
 
                     //Favourite icon
                     Positioned(
-                        right: 2,
-                        top: 0,
-                        child: MyCircularFavoriteIcon(
-                          icon: Iconsax.heart5,
-                          width: 40,
-                          height: 40,
-                          color: Colors.red,
-                        ))
+                      right: 2,
+                      top: 0,
+                      child: MyFavoriteIcon(
+                        productId: product.id,
+                      ),
+                    )
 
                     //Discount label
                   ],
@@ -136,14 +133,16 @@ class MyProductCardVertical extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "৳${product.price.toStringAsFixed(0)}",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: TColors.darkGrey,
-                                        decoration: TextDecoration.lineThrough,
+                                    if (product.price > 0)
+                                      Text(
+                                        "৳${product.price.toStringAsFixed(0)}",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: TColors.darkGrey,
+                                          decoration:
+                                              TextDecoration.lineThrough,
+                                        ),
                                       ),
-                                    ),
                                     MyProductPrice(
                                       price:
                                           product.salePrice.toStringAsFixed(0),
@@ -157,7 +156,8 @@ class MyProductCardVertical extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      controller.getLargestProductPrice(product),
+                                      controller
+                                          .getLargestProductPrice(product),
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: TColors.darkGrey,

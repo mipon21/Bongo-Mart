@@ -14,12 +14,12 @@ class VariationController extends GetxController {
   Rx<ProductVariationModel> selectedVariation =
       ProductVariationModel.empty().obs;
 
+
+
   //--Select attribute, and Variation
   void onAttributeSelected(
       ProductModel product, attributeName, attributeValue) {
     //--when attribute is selected we will fist add it to selected attributes
-
-    // ignore: unnecessary_this
     final selectedAttributes =
         Map<String, String>.from(this.selectedAttributes);
     selectedAttributes[attributeName] = attributeValue;
@@ -40,6 +40,9 @@ class VariationController extends GetxController {
 
     getProductVariationStockStatus();
   }
+
+  // Initialize default selection with first value of each attribute
+
 
   bool _isAttributeValues(Map<String, dynamic> variationAttributes,
       Map<String, dynamic> selectedAttributes) {

@@ -176,7 +176,7 @@ class MyDummyData {
           stock: 40,
           price: 2100,
           salePrice: 1550,
-          image: TImages.productImage22,
+          image: TImages.productImage1,
           attributeValues: {'Color': 'Red', 'Size': 'EU 36'},
         ),
         ProductVariationModel(
@@ -192,7 +192,7 @@ class MyDummyData {
           stock: 40,
           price: 2300,
           salePrice: 1650,
-          image: TImages.productImage1,
+          image: TImages.productImage2,
           attributeValues: {'Color': 'Blue', 'Size': 'EU 34'},
         ),
         ProductVariationModel(
@@ -200,7 +200,7 @@ class MyDummyData {
           stock: 40,
           price: 2400,
           salePrice: 1700,
-          image: TImages.productImage1,
+          image: TImages.productImage2,
           attributeValues: {'Color': 'Blue', 'Size': 'EU 36'},
         ),
         ProductVariationModel(
@@ -208,7 +208,7 @@ class MyDummyData {
           stock: 40,
           price: 2500,
           salePrice: 1750,
-          image: TImages.productImage1,
+          image: TImages.productImage2,
           attributeValues: {'Color': 'Blue', 'Size': 'EU 38'},
         ),
         ProductVariationModel(
@@ -216,7 +216,7 @@ class MyDummyData {
           stock: 40,
           price: 2600,
           salePrice: 1800,
-          image: TImages.productImage1,
+          image: TImages.productImage3,
           attributeValues: {'Color': 'Green', 'Size': 'EU 34'},
         ),
         ProductVariationModel(
@@ -224,7 +224,7 @@ class MyDummyData {
           stock: 40,
           price: 2700,
           salePrice: 1850,
-          image: TImages.productImage1,
+          image: TImages.productImage3,
           attributeValues: {'Color': 'Green', 'Size': 'EU 36'},
         ),
         ProductVariationModel(
@@ -232,7 +232,7 @@ class MyDummyData {
           stock: 40,
           price: 2800,
           salePrice: 1900,
-          image: TImages.productImage1,
+          image: TImages.productImage3,
           attributeValues: {'Color': 'Green', 'Size': 'EU 38'},
         ),
       ],
@@ -381,5 +381,17 @@ class MyDummyData {
       ],
       productType: 'ProductType.variable',
     ),
+  ];
+
+  static final List<BrandModel> brands = [
+    BrandModel(id: '1', name: 'Nike', image: TImages.nikeLogo, isFeatured: true, productsCount: 150),
+    BrandModel(id: '2', name: 'Adidas', image: TImages.adidasLogo, isFeatured: true, productsCount: 150),
+    BrandModel(id: '3', name: 'IKEA', image: TImages.ikeaLogo, isFeatured: true, productsCount: 150),
+    BrandModel(id: '4', name: 'ZARA', image: TImages.zaraLogo, isFeatured: true, productsCount: 150),
+    BrandModel(id: '5', name: 'PUMA', image: TImages.pumaLogo, isFeatured: false, productsCount: 150),
+    BrandModel(id: '6', name: 'H&M', image: TImages.hermanMillerLogo, isFeatured: false, productsCount: 150),
+    BrandModel(id: '8', name: 'Apple', image: TImages.appleLogo, isFeatured: false, productsCount: 150),
+    BrandModel(id: '9', name: 'Jordan', image: TImages.jordanLogo, isFeatured: false, productsCount: 150),
+    BrandModel(id: '10', name: 'Kenwood', image: TImages.kenwoodLogo, isFeatured: false, productsCount: 150),
   ];
 }

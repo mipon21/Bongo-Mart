@@ -4,7 +4,6 @@ import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/features/personalization/screens/profile/controller/update_single_field_controller.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
-import 'package:bongo_mart/utils/formatters/formatter.dart';
 import 'package:bongo_mart/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

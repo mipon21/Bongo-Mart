@@ -45,6 +45,7 @@ class TImages {
   static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
   static const String successfullyRegistrationAnimation = "assets/images/animations/72462-check-register.json";
   static const String processingAnimation = "assets/images/animations/141594-animation-of-docer.json";
+  static const String pencilAnimation = "assets/images/animations/140429-pencil-drawing.json";
 
 
   // -- OnBoarding Texts

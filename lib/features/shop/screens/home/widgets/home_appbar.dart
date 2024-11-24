@@ -10,6 +10,7 @@ import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class MyHomeAppBar extends StatelessWidget {
   const MyHomeAppBar({
@@ -54,6 +55,7 @@ class MyHomeAppBar extends StatelessWidget {
           onPressed: () {
             navigationController.selectedIndex.value = 2;
           },
+          icon: Iconsax.shopping_bag,
           iconColor: TColors.white,
         )
       ],

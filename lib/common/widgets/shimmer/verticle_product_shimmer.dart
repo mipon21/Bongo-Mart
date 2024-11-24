@@ -4,7 +4,7 @@ import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class MyVerticalProductShimmer extends StatelessWidget {
-  const MyVerticalProductShimmer({super.key, required this.itemCount});
+  const MyVerticalProductShimmer({super.key, this.itemCount = 4});
   final int itemCount;
   @override
   Widget build(BuildContext context) {

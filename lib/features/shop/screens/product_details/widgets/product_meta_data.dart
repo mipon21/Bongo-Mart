@@ -9,7 +9,6 @@ import 'package:bongo_mart/features/shop/controllers/product/product_controller.
 import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/enums.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/enum/enums.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
@@ -47,13 +46,15 @@ class MyProductMetaData extends StatelessWidget {
                     .apply(color: TColors.white),
               ),
             ),
+            if (product.price > 0)
             SizedBox(width: TSizes.spaceBtwItems),
             if (product.productType == ProductType.single.toString() &&
                 product.salePrice > 0)
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  if (product.price > 0)
                   Text(
                     "৳${product.price.toStringAsFixed(0)}",
                     style: TextStyle(
@@ -62,6 +63,7 @@ class MyProductMetaData extends StatelessWidget {
                       decoration: TextDecoration.lineThrough,
                     ),
                   ),
+                  if (product.price > 0)
                   SizedBox(width: 4),
                   MyProductPrice(
                     price: product.salePrice.toStringAsFixed(0),

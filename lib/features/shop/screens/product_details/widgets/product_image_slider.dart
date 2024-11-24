@@ -1,20 +1,18 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, prefer_const_constructors
 
+import 'package:bongo_mart/common/widgets/products/fav_icon/fav_icon.dart';
 import 'package:bongo_mart/features/shop/controllers/product/image_controller.dart';
 import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/curved_edges/curved_edges_widget.dart';
-import '../../../../../common/widgets/icons/circular_icon.dart';
 import '../../../../../common/widgets/images/my_rounded_image.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class MyProductImageSlider extends StatelessWidget {
   const MyProductImageSlider({
@@ -110,11 +108,10 @@ class MyProductImageSlider extends StatelessWidget {
             MyAppBar(
               leadingIcon: Icons.arrow_back_ios_new,
               leadingOnPressed: () => Get.back(),
+              // ignore: prefer_const_literals_to_create_immutables
               actions: [
-                MyCircularFavoriteIcon(
-                  icon: Iconsax.heart5,
-                  color: Colors.red,
-                  onPressed: () {},
+                MyFavoriteIcon(
+                  productId: product.id,
                 )
               ],
             )

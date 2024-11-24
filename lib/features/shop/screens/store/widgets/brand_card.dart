@@ -1,9 +1,10 @@
+import 'package:bongo_mart/features/shop/models/brand_model.dart';
+
 import '../../../../../common/style/rounded_container.dart';
 import '../../../../../common/widgets/icons/brand_title_with_verified_icon.dart';
 import '../../../../../common/widgets/images/my_circular_Image.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/enums.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +12,14 @@ import 'package:flutter/material.dart';
 class MyBrandCard extends StatelessWidget {
   const MyBrandCard({
     super.key,
+    required this.brand,
     this.onTap,
     this.showBorder = true,
   });
 
   final bool showBorder;
   final void Function()? onTap;
+  final BrandModel brand;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,8 @@ class MyBrandCard extends StatelessWidget {
             Flexible(
               child: MyCircularImage(
                 isDark: isDark,
-                imageUrl: TImages.clothIcon,
+                imageUrl: brand.image,
+                isNetworkImage: true,
                 backgroundColor: Colors.transparent,
                 overlayColor: isDark ? TColors.white : TColors.dark,
               ),
@@ -45,13 +49,13 @@ class MyBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const MyBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                   MyBrandTitleWithVerifiedIcon(
+                    title: brand.name,
                     brandTitleSize: TextSizes.large,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems / 3),
                   Text(
-                    '256 products',
+                    '${brand.productsCount ?? 0} products',
                     maxLines: 1,
                     style: Theme.of(context).textTheme.labelMedium,
                     overflow: TextOverflow.ellipsis,

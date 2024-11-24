@@ -6,17 +6,13 @@ import 'package:bongo_mart/data/repositories/categories/fireabse_storage_service
 import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/enum/enums.dart';
-import 'package:bongo_mart/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_exceptions.dart';
-import 'package:bongo_mart/utils/exceptions/format_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/platform_exceptions.dart';
 import 'package:bongo_mart/utils/popups/full_screen_loader.dart';
 import 'package:bongo_mart/utils/popups/loaders.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
@@ -30,10 +26,151 @@ class ProductRepository extends GetxController {
       final snapshot = await _db
           .collection("Products")
           .where("IsFeatured", isEqualTo: true)
-          .limit(5)
+          .limit(4)
           .get();
 
       return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //Get All features Products
+
+  Future<List<ProductModel>> getAllFeaturedProducts() async {
+    try {
+      final snapshot = await _db
+          .collection("Products")
+          .where("IsFeatured", isEqualTo: true)
+          .get();
+
+      return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<List<ProductModel>> getAllProducts() async {
+    try {
+      final snapshot = await _db.collection("Products").get();
+
+      return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  //Get All Products
+
+  Future<List<ProductModel>> fetchProductByQuery(Query query) async {
+    try {
+      final querySnapshot = await query.get();
+      final List<ProductModel> productList = querySnapshot.docs
+          .map((e) => ProductModel.fromQuerySnapshot(e))
+          .toList();
+      return productList;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<List<ProductModel>> getBrandProducts(String brandId,
+      {int limit = -1}) async {
+    try {
+      final querySnapshot = limit == -1
+          ? await _db
+              .collection('Products')
+              .where('Brand.Id', isEqualTo: brandId)
+              .get()
+          : await _db
+              .collection('Products')
+              .where('Brand.Id', isEqualTo: brandId)
+              .limit(limit)
+              .get();
+      final products =
+          querySnapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+      return products;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<List<ProductModel>> getProductForCategory(String categoryId,
+      {int limit = 4}) async {
+    try {
+      final querySnapshot = limit == -1
+          ? await _db
+              .collection('ProductCategory')
+              .where('CategoryId', isEqualTo: categoryId)
+              .get()
+          : await _db
+              .collection('ProductCategory')
+              .where('CategoryId', isEqualTo: categoryId)
+              .limit(limit)
+              .get();
+
+      List<String> productIds =
+          querySnapshot.docs.map((e) => e['ProductId'] as String).toList();
+
+      if (productIds.isEmpty) {
+        return []; // Return an empty list if no products are found
+      }
+
+      final products = await _db
+          .collection('Products')
+          .where(FieldPath.documentId, whereIn: productIds)
+          .get();
+
+      List<ProductModel> productList =
+          products.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
+
+      return productList;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+
+  Future<List<ProductModel>> getFavouriteProducts(List<String> productIds) async {
+    try {
+      final querySnapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn: productIds).get();
+      return querySnapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on SocketException catch (e) {

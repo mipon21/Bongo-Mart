@@ -20,7 +20,6 @@ class MyBillingAddressSection extends StatelessWidget {
           onPressed: () => Get.to(() => const UserAddressesScreen()),
         ),
         
-        MySingleAddress(isSelectedAddress: true,),
       ],
     );
   }

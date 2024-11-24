@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
-import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
 import 'package:bongo_mart/common/widgets/shimmer/shimmer_effect.dart';

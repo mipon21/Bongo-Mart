@@ -2,13 +2,10 @@
 
 import 'package:bongo_mart/data/repositories/categories/fireabse_storage_service.dart';
 import 'package:bongo_mart/features/shop/models/banner_model.dart';
-import 'package:bongo_mart/features/shop/models/category_model.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/format_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/platform_exceptions.dart';
-import 'package:bongo_mart/utils/popups/full_screen_loader.dart';
 import 'package:bongo_mart/utils/popups/loaders.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

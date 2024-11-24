@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 import '../../../../../common/widgets/vertical_image_text/vertical_image_text.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 
 class MyHomeCategories extends StatelessWidget {
@@ -44,7 +43,7 @@ class MyHomeCategories extends StatelessWidget {
               image: category.image,
               title: category.name,
               textColor: TColors.white,
-              onPressed: () => Get.to(const SubCategoryScreen()),
+              onPressed: () => Get.to(() => SubCategoryScreen(category: category)),
             );
           },
         ),

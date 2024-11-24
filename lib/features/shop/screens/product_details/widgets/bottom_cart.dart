@@ -2,19 +2,26 @@
 
 import 'package:bongo_mart/common/widgets/icons/brand_title_with_verified_icon.dart';
 import 'package:bongo_mart/common/widgets/images/my_circular_Image.dart';
+import 'package:bongo_mart/features/shop/controllers/product/cart_controller.dart';
+import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/enums.dart';
 import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
+import 'package:bongo_mart/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MyBottomAddToCart extends StatelessWidget {
-  const MyBottomAddToCart({super.key});
+  const MyBottomAddToCart({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final isDark = THelperFunctions.isDarkMode(context);
+    final cartController = CartController.instance;
     return Container(
       margin: const EdgeInsets.symmetric(
           horizontal: 16, vertical: TSizes.defaultSpace / 4),
@@ -92,7 +99,11 @@ class MyBottomAddToCart extends StatelessWidget {
 
           Expanded(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                final cartItem = cartController.convertProductToCartItem(product, 1);
+                cartController.addOneItemToCart(cartItem);
+                TLoaders.customToast(message: 'Added to cart');
+              },
               child: Text(
                 'Add to cart',
                 style: Theme.of(context).textTheme.labelSmall!.apply(

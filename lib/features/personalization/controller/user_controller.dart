@@ -1,8 +1,5 @@
 // ignore_for_file: empty_catches, unused_local_variable, prefer_const_constructors, unrelated_type_equality_checks
 
-import 'dart:io';
-import 'dart:ui';
-import 'dart:ui';
 
 import 'package:bongo_mart/data/repositories/authentication/auth_repo.dart';
 import 'package:bongo_mart/data/repositories/user/user_repo.dart';
@@ -18,8 +15,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:image/image.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserController extends GetxController {

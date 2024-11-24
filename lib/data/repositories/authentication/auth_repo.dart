@@ -10,6 +10,7 @@ import 'package:bongo_mart/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/firebase_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/format_exceptions.dart';
 import 'package:bongo_mart/utils/exceptions/platform_exceptions.dart';
+import 'package:bongo_mart/utils/local_storage/storage_utility.dart';
 import 'package:bongo_mart/utils/popups/full_screen_loader.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -36,6 +37,9 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
+         
+        await TLocalStorage.init(user.uid);
+
         Get.offAll(() => NavigationMenu());
       } else {
         Get.offAll(() => VertifyEmailScreen(email: _auth.currentUser?.email));

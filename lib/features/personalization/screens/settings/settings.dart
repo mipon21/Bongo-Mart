@@ -1,11 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
-import 'package:bongo_mart/common/custom_dialog/customdialog.dart';
 import 'package:bongo_mart/common/widgets/appbar/appbar.dart';
 import 'package:bongo_mart/common/widgets/list_tile/settings_menu_tile.dart';
 import 'package:bongo_mart/common/widgets/list_tile/user_profile_tile.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
-import 'package:bongo_mart/data/repositories/authentication/auth_repo.dart';
 import 'package:bongo_mart/features/personalization/controller/theme_controller.dart';
 import 'package:bongo_mart/features/personalization/controller/user_controller.dart';
 import 'package:bongo_mart/features/personalization/screens/address/addresses.dart';
@@ -13,6 +11,7 @@ import 'package:bongo_mart/features/personalization/screens/settings/widgets/loa
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
 import 'package:bongo_mart/features/shop/screens/order/order.dart';
 import 'package:bongo_mart/navigation_menu.dart';
+import 'package:bongo_mart/tst.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
@@ -94,7 +93,7 @@ class SettingsScreen extends StatelessWidget {
                     subtitle: 'Manage Your Payment Methods',
                   ),
                   MySettingsMenuTile(
-                    onTap: () {},
+                    onTap: () => Get.to(() => const Tst()),
                     icon: Iconsax.discount_shape,
                     title: 'My Coupons',
                     subtitle: 'Manage Your Coupons',

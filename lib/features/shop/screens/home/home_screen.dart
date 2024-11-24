@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:bongo_mart/common/widgets/custom_shapes/search_container.dart';
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/shimmer/verticle_product_shimmer.dart';
@@ -12,9 +11,7 @@ import 'package:bongo_mart/features/shop/screens/home/widgets/home_categories.da
 import 'package:bongo_mart/features/shop/screens/home/widgets/primary_header_container.dart';
 import 'package:bongo_mart/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/constants/sizes.dart';
-import 'package:bongo_mart/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -37,9 +34,17 @@ class HomeScreen extends StatelessWidget {
                   height: TSizes.spaceBtwSections / 2,
                 ),
                 //SearchBar
-                MySearchContainer(
-                  icon: Iconsax.search_normal,
-                  text: "Search in Store ...",
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Iconsax.search_normal),
+                      labelText: 'Search....',
+                      labelStyle: Theme.of(context).textTheme.bodySmall,
+                      hintText: 'Search in Store....',
+                      hintStyle: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: TSizes.spaceBtwSections / 2,
@@ -75,7 +80,16 @@ class HomeScreen extends StatelessWidget {
                     title: 'Popular Products',
                     showViewAll: true,
                     onPressed: () {
-                      Get.to(() => AllProducts());
+                      Get.to(
+                        () => AllProducts(
+                          title: "Popular Products",
+                          // query: FirebaseFirestore.instance
+                          //     .collection("Products")
+                          //     .where("IsFeatured", isEqualTo: true)
+                          //     .limit(6),
+                          futureMethod: controller.fetchAllProducts(),
+                        ),
+                      );
                     },
                   ),
 

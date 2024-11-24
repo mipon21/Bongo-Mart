@@ -20,17 +20,49 @@ class ProductController extends GetxController {
     super.onInit();
   }
 
+  // Get limited featured products
   Future<void> fetchFeaturedProducts() async {
     try {
       isLoading.value = true;
 
       final products = await productRepository.getFeaturedProducts();
+
       featuredProducts.assignAll(products);
+
     } catch (e) {
       TLoaders.errorSnackBar(title: "Error", message: e.toString());
     } finally {
       isLoading.value = false;
     }
+  }
+
+  // Get all featured products
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+    try {
+
+      final products = await productRepository.getAllFeaturedProducts();
+
+      return products;
+
+      
+    } catch (e) {
+      TLoaders.errorSnackBar(title: "Error", message: e.toString());
+      return [];
+    } 
+  }
+  // Get all products
+  Future<List<ProductModel>> fetchAllProducts() async {
+    try {
+
+      final products = await productRepository.getAllProducts();
+
+      return products;
+
+      
+    } catch (e) {
+      TLoaders.errorSnackBar(title: "Error", message: e.toString());
+      return [];
+    } 
   }
 
   //--Get Product Price--//
@@ -62,29 +94,29 @@ class ProductController extends GetxController {
     }
   }
 
-  String getLargestProductPrice(ProductModel product) {
-    double largestPrice = 0.0;
+ String getLargestProductPrice(ProductModel product) {
+  double largestPrice = 0.0;
 
-    // If no variations exist, return the product's price or sale price
-    if (product.productType == ProductType.single.toString()) {
-      return (product.salePrice > 0 ? product.salePrice : product.price)
-          .toStringAsFixed(0);
-    } else {
-      // Loop through variations to find the largest price
-      for (var variation in product.productVariations!) {
-        double priceToConsider =
-            product.salePrice > 0.0 ? product.price : product.salePrice;
+  // If no variations exist, return the product's price or sale price
+  if (product.productType == ProductType.single.toString()) {
+    return (product.salePrice > 0 ? product.salePrice : product.price)
+        .toStringAsFixed(0);
+  } else {
+    // Loop through variations to find the largest price
+    for (var variation in product.productVariations!) {
+      double variationPrice = variation.salePrice > 0 ? variation.price : variation.salePrice;
 
-        // Update largestPrice if the current priceToConsider is greater
-        if (priceToConsider > largestPrice) {
-          largestPrice = priceToConsider;
-        }
+      // Update largestPrice if the current variationPrice is greater
+      if (variationPrice > largestPrice) {
+        largestPrice = variationPrice;
       }
-
-      // Return the largest price found
-      return "৳${largestPrice.toStringAsFixed(0)}";
     }
+
+    // Return the largest price found
+    return "৳${largestPrice.toStringAsFixed(0)}";
   }
+}
+
 
   String? calculateSalePercentage(double originalPrice, double? salePrice) {
     if (salePrice == null || salePrice == 0.0) return null;

@@ -4,9 +4,7 @@
 import 'package:bongo_mart/bindings/general_bindings.dart';
 import 'package:bongo_mart/routes/app_routes.dart';
 import 'package:bongo_mart/utils/constants/colors.dart';
-import 'package:bongo_mart/utils/constants/image_strings.dart';
 import 'package:bongo_mart/utils/helpers/helper_functions.dart';
-import 'package:lottie/lottie.dart';
 import 'utils/constants/text_strings.dart';
 import 'utils/theme/theme.dart';
 import 'package:flutter/material.dart';

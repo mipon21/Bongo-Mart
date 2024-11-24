@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_local_variable
 
 import 'package:bongo_mart/common/widgets/layout/grid_layout.dart';
+import 'package:bongo_mart/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:bongo_mart/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:bongo_mart/common/widgets/text/section_heading.dart';
+import 'package:bongo_mart/features/shop/controllers/product/cart_controller.dart';
 import 'package:bongo_mart/features/shop/controllers/product/product_controller.dart';
 import 'package:bongo_mart/features/shop/models/product_model.dart';
 import 'package:bongo_mart/features/shop/screens/product_details/widgets/bottom_cart.dart';
@@ -32,21 +34,9 @@ class ProductDetails extends StatelessWidget {
     final isDark = THelperFunctions.isDarkMode(context);
     NavigationController navigationController = Get.put(NavigationController());
     final controller = ProductController.instance;
-
+    final cartController = Get.put(CartController());
     return Scaffold(
-      bottomNavigationBar: MyBottomAddToCart(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          navigationController.selectedIndex.value = 2;
-          Get.to(() => NavigationMenu());
-        },
-        shape: CircleBorder(),
-        backgroundColor: isDark ? TColors.secondary : TColors.primary,
-        child: Icon(
-          Iconsax.shopping_cart,
-          color: Colors.white,
-        ),
-      ),
+      bottomNavigationBar: MyBottomAddToCart(product: product),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -73,9 +63,9 @@ class ProductDetails extends StatelessWidget {
 
                   //----- attributes -----
                   if (product.productType == ProductType.variable.toString())
-                  MyProductAttributes(product: product),
+                    MyProductAttributes(product: product),
                   if (product.productType == ProductType.variable.toString())
-                  SizedBox(height: TSizes.spaceBtwSections),
+                    SizedBox(height: TSizes.spaceBtwSections),
 
                   /// Description
                   MySectionHeading(title: 'Description'),

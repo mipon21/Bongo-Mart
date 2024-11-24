@@ -23,6 +23,7 @@ class MyProductAttributes extends StatelessWidget {
     final isDark = THelperFunctions.isDarkMode(context);
     final controller = Get.put(VariationController());
     final productController = ProductController.instance;
+   
 
     return Obx(
       () {
@@ -140,7 +141,8 @@ class MyProductAttributes extends StatelessWidget {
                       ],
                     ),
                     // Variation Description
-                    if (controller.selectedVariation.value.description!.isNotEmpty)
+                    if (controller
+                        .selectedVariation.value.description!.isNotEmpty)
                       MyProductTitle(
                         title: 'Description:',
                         smallSize: true,
@@ -164,41 +166,44 @@ class MyProductAttributes extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: product.productAttributes!
                   .map(
+                    
                     (attribute) => Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MySectionHeading(title: attribute.name ?? ''),
                         SizedBox(height: TSizes.spaceBtwItems / 2),
                         Obx(
-                          () => Wrap(
-                            spacing: 8,
-                            children: attribute.values!.map((attributeValue) {
-                              final isSelected = controller
-                                      .selectedAttributes[attribute.name] ==
-                                  attributeValue;
-                              final available = controller
-                                  .getAttributesAvailabilityInVariation(
-                                      product.productVariations!,
-                                      attribute.name!)
-                                  .contains(attributeValue);
-
-                              return MyCoiceChip(
-                                title: attributeValue,
-                                isSelected: isSelected,
-                                onSelected: available
-                                    ? (selected) {
-                                        if (selected && available) {
-                                          controller.onAttributeSelected(
-                                            product,
-                                            attribute.name ?? '',
-                                            attributeValue,
-                                          );
+                          () {
+                            return Wrap(
+                              spacing: 8,
+                              children: attribute.values!.map((attributeValue) {
+                                final isSelected = controller
+                                        .selectedAttributes[attribute.name] ==
+                                    attributeValue;
+                                final available = controller
+                                    .getAttributesAvailabilityInVariation(
+                                        product.productVariations!,
+                                        attribute.name!)
+                                    .contains(attributeValue);
+                                
+                                return MyCoiceChip(
+                                  title: attributeValue,
+                                  isSelected: isSelected,
+                                  onSelected: available
+                                      ? (selected) {
+                                          if (selected && available) {
+                                            controller.onAttributeSelected(
+                                              product,
+                                              attribute.name ?? '',
+                                              attributeValue,
+                                            );
+                                          }
                                         }
-                                      }
-                                    : null,
-                              );
-                            }).toList(),
-                          ),
+                                      : null,
+                                );
+                              }).toList(),
+                            );
+                          },
                         ),
                       ],
                     ),
